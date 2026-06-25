@@ -1,0 +1,175 @@
+{
+  "communities": {
+    "0": [
+      "docs_brand",
+      "docs_brand_color_palette",
+      "docs_brand_logo_usage",
+      "docs_brand_typography",
+      "docs_brand_voice_tone",
+      "docs_design",
+      "docs_design_color_system",
+      "docs_design_layout_principles",
+      "docs_design_spacing_system",
+      "docs_design_typography_scale"
+    ],
+    "1": [
+      "repair_shopwebsite_package",
+      "repair_shopwebsite_package_react",
+      "repair_shopwebsite_package_reactdom",
+      "repair_shopwebsite_package_reactscripts",
+      "repair_shopwebsite_package_webvitals"
+    ],
+    "2": [
+      "docs_animations",
+      "docs_animations_css_animations",
+      "docs_animations_css_transitions",
+      "docs_animations_framer_motion"
+    ],
+    "3": [
+      "docs_content",
+      "docs_content_contact_info",
+      "docs_content_service_descriptions",
+      "docs_content_testimonials"
+    ],
+    "4": [
+      "docs_menu_list",
+      "docs_menu_list_contact_cta",
+      "docs_menu_list_main_nav",
+      "docs_menu_list_service_links"
+    ],
+    "5": [
+      "docs_project",
+      "docs_project_features",
+      "docs_project_target_audience",
+      "docs_project_tech_stack"
+    ],
+    "6": [
+      "docs_services",
+      "docs_services_diagnostic",
+      "docs_services_preventive_maintenance",
+      "docs_services_repair"
+    ],
+    "7": [
+      "docs_terms",
+      "docs_terms_disclaimer",
+      "docs_terms_governing_law",
+      "docs_terms_liability"
+    ],
+    "8": [
+      "docs_build_prompt",
+      "docs_build_prompt_ai_guidelines",
+      "docs_build_prompt_component_standards"
+    ],
+    "9": [
+      "package",
+      "package_dependencies",
+      "package_dependencies_motion"
+    ]
+  },
+  "cohesion": {
+    "0": 0.24444444444444444,
+    "1": 0.4,
+    "2": 0.6666666666666666,
+    "3": 0.5,
+    "4": 0.5,
+    "5": 0.5,
+    "6": 0.5,
+    "7": 0.5,
+    "8": 0.6666666666666666,
+    "9": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "repair_shopwebsite_package",
+      "label": "Repair ShopWebsite",
+      "degree": 4
+    },
+    {
+      "id": "docs_brand",
+      "label": "BRAND",
+      "degree": 4
+    },
+    {
+      "id": "docs_design",
+      "label": "DESIGN",
+      "degree": 4
+    },
+    {
+      "id": "docs_animations",
+      "label": "ANIMATIONS",
+      "degree": 3
+    },
+    {
+      "id": "docs_content",
+      "label": "CONTENT",
+      "degree": 3
+    },
+    {
+      "id": "docs_menu_list",
+      "label": "MENU_LIST",
+      "degree": 3
+    },
+    {
+      "id": "docs_project",
+      "label": "PROJECT",
+      "degree": 3
+    },
+    {
+      "id": "docs_services",
+      "label": "SERVICES",
+      "degree": 3
+    },
+    {
+      "id": "docs_terms",
+      "label": "TERMS",
+      "degree": 3
+    },
+    {
+      "id": "docs_animations_css_transitions",
+      "label": "CSS Transitions",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Spacing System",
+      "target": "Logo Usage",
+      "source_files": [
+        "docs/DESIGN.md",
+        "docs/BRAND.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Color Palette",
+      "target": "Color System",
+      "source_files": [
+        "docs/BRAND.md",
+        "docs/DESIGN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Typography",
+      "target": "Typography Scale",
+      "source_files": [
+        "docs/BRAND.md",
+        "docs/DESIGN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; semantically similar concepts with no structural link"
+    }
+  ],
+  "questions": [
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `motion`, `react`, `react-dom` to the rest of the system?",
+      "why": "25 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 77% 16%;
+  --foreground: 210 29% 86%;
+
+  --card: 210 77% 14%;
+  --card-foreground: 210 29% 86%;
+
+  --popover: 210 77% 14%;
+  --popover-foreground: 210 29% 86%;
+
+  --primary: 210 96% 45%;
+  --primary-foreground: 210 30% 95%;
+
+  --secondary: 210 77% 38%;
+  --secondary-foreground: 210 30% 95%;
+
+  --muted: 210 30% 20%;
+  --muted-foreground: 210 29% 72%;
+
+  --accent: 210 67% 68%;
+  --accent-foreground: 210 30% 12%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 210 40% 25%;
+  --input: 210 40% 25%;
+  --ring: 210 96% 45%;
+
+  --surface: 210 77% 12%;
+
+  --radius: 0.5rem;
+}
+
+/* Custom Glassmorphism */
+.glass {
+  @apply bg-surface/20 backdrop-blur border border-surface/30 shadow-sm;
+}
+
+/* Custom animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Custom gradients */
+.gradient-bg {
+  @apply bg-gradient-to-br from-[#0466c8] via-[#023e7d] to-[#001233];
+}
+
+.gradient-primary {
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+}
+
+.gradient-secondary {
+  background: linear-gradient(to right, hsl(var(--secondary)), hsl(var(--accent)));
+}
+
+/* Text glow effects */
+.text-glow-primary {
+  text-shadow: 0 0 10px hsl(var(--primary)/0.5),
+               0 0 20px hsl(var(--primary)/0.3),
+               0 0 30px hsl(var(--primary)/0.2);
+}
+
+.text-glow-secondary {
+  text-shadow: 0 0 10px hsl(var(--accent)/0.45),
+               0 0 20px hsl(var(--accent)/0.25),
+               0 0 30px hsl(var(--accent)/0.14);
+}
+
+html,
+body {
+  background: hsl(var(--background));
+}
+
+/* New animations for hero and scenes */
+@keyframes gradient_shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* Mobile touch optimization */
+button, a, input, select, textarea, label {
+  touch-action: manipulation;
+}
+
+/* Prevent text size adjustment on mobile orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Smoother scrolling on mobile */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+}
