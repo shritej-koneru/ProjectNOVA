@@ -15,7 +15,30 @@ build/
 
 # misc
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.pem
+*~
+*.swp
+*.swo
+
+# IDE
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# turbo
+.turbo/
+
+# graphify
+graphify-out/
+
+# MCP tools
+.playwright-mcp/
+.mcp/
 
 # debug
 npm-debug.log*
