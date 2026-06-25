@@ -36,14 +36,6 @@ Desktop.ini
 # graphify
 graphify-out/
 
-# planning / analysis docs (synced to docs/)
-brand-analysis.md
-conversion-analysis.md
-frontend-architecture.md
-merged-findings.md
-motion-system.md
-ux-architecture.md
-visual-system.md
 
 # debug / temp artifacts
 console-errors.txt
