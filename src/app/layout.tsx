@@ -10,7 +10,11 @@ const interTight = Inter_Tight({ subsets: ['latin'], variable: '--font-inter-tig
 export const metadata: Metadata = {
   title: 'Project NOVA - Notebook Optimization, Virtualization & Advancement',
   description: 'Premium student-focused laptop transformation service. Transform your laptop from slow and cluttered to a powerful workstation.',
-  icons: { icon: '/favicon.ico' },
+  icons: {
+    icon: '/favicon-32.png',
+    shortcut: '/favicon-32.png',
+    apple: '/logo.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

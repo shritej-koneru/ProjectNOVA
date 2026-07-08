@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { storyScenes } from '@/data/content';
@@ -50,6 +51,7 @@ export default function ScrollStory() {
         <div className="absolute inset-0 bg-[url('/hero-shader.png')] bg-cover bg-center opacity-20 mix-blend-screen" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(circle_at_center,black,transparent_72%)]" />
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none z-20" />
         <motion.div style={{ scaleX: progressScale }} className="absolute left-0 top-0 z-30 h-1 w-full origin-left bg-gradient-to-r from-primary via-secondary to-accent" />
 
         <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-6 px-4 sm:px-6 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10 lg:px-10 lg:py-24">
@@ -69,15 +71,12 @@ export default function ScrollStory() {
                 <p className="mt-6 text-lg leading-8 text-muted-foreground md:text-xl">
                   {scene.description}
                 </p>
-                <motion.button
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                  onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="mt-8 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                <Link
+                  href="/services"
+                  className="mt-8 inline-block rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   Explore Our Services
-                </motion.button>
+                </Link>
               </motion.div>
             </AnimatePresence>
             <div className="mt-10 grid max-w-sm grid-cols-5 gap-2">

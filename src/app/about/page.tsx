@@ -61,6 +61,30 @@ export default function AboutPage() {
           ))}
         </div>
 
+        <ScrollReveal>
+          <h2 className="text-2xl font-bold text-accent mb-8 text-center">Our Promise</h2>
+        </ScrollReveal>
+
+        <div className="grid gap-5 sm:grid-cols-3 mb-12 lg:mb-16">
+          {[
+            { title: 'System Restore Point', description: 'Before any customization, we create a full system restore point. Your data stays intact and you can revert anytime.' },
+            { title: 'Live Session Access', description: 'You watch everything in real-time via remote desktop. No blind work — every change is visible and approved by you.' },
+            { title: '48-Hour Satisfaction Guarantee', description: 'Not happy with something? Let us know within 48 hours and we fix it at no extra cost. No questions asked.' },
+          ].map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              className="rounded-2xl border border-accent/15 bg-surface/30 p-6"
+            >
+              <h3 className="font-semibold text-accent mb-2">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
         <div className="text-center rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/8 to-secondary/5 p-10">
           <h2 className="text-2xl font-bold text-foreground mb-3">Ready to transform your laptop?</h2>
           <p className="text-muted-foreground mb-6">Join 500+ students who already upgraded their setup.</p>

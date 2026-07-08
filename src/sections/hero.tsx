@@ -56,8 +56,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="group relative overflow-hidden rounded-full border border-accent/40 bg-accent/15 px-5 sm:px-7 py-3 font-semibold text-accent shadow-[0_0_40px_hsl(var(--accent)/0.18)] backdrop-blur transition hover:bg-accent/25"
             >
               <span className="relative z-10 flex items-center gap-3">
@@ -65,9 +65,9 @@ export default function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-accent animate-dither" />
               </span>
               <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-white/20 blur-lg transition duration-700 group-hover:translate-x-[340%]" />
-            </a>
+            </Link>
             <Link
-              href="#services"
+              href="/services"
               className="rounded-full border border-white/10 bg-surface/50 px-5 sm:px-7 py-3 font-semibold text-muted-foreground backdrop-blur transition hover:border-accent/30 hover:text-foreground"
             >
               {hero.secondaryCta}

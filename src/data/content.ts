@@ -2,7 +2,7 @@
 export const hero = {
   headline: 'Transform Your Laptop.',
   subheadline: 'Unlock Its Potential.',
-  description: 'Windows Optimization • Linux Setup • Gaming Configuration • Developer Environments • Productivity Systems',
+  description: 'Windows Optimization • Linux Setup • Gaming Configuration • Game Installation • Developer Environments • Productivity Systems',
   primaryCta: 'Get Started',
   secondaryCta: 'Explore Services'
 };
@@ -11,52 +11,52 @@ export const storyScenes = [
   {
     id: 1,
     title: 'Your Laptop Deserves Better',
-    description: 'Slow startup times, unnecessary software, cluttered storage, and poor performance shouldn\'t hold you back.'
+    description: 'Slow startup times dragging on for minutes, unnecessary software hogging resources, cluttered storage you can never find space in, and poor performance that makes even basic tasks feel like a chore — your laptop is capable of so much more, and it is time to unlock that potential.'
   },
   {
     id: 2,
     title: 'Too Much Junk',
-    description: 'Most laptops come overloaded with software you never asked for.'
+    description: 'Trialware, OEM bloat, background updaters, toolbars, and pre-installed apps you will never use — most laptops ship overloaded with software that eats up your storage, drains your battery, and slows everything down before you have even opened a single file.'
   },
   {
     id: 3,
     title: 'Debloated. Optimized. Ready.',
-    description: 'Remove unnecessary applications, improve startup speed, and create a cleaner system.'
+    description: 'We strip away every unnecessary application, disable resource-hungry startup programs, clear out cache and temporary files, tweak system services for performance, and lock in driver stability — leaving you with a lean, responsive system that boots in seconds and stays out of your way.'
   },
   {
     id: 4,
     title: 'Fresh Windows Setup',
-    description: 'Clean installations, drivers, updates, and a properly configured environment.'
+    description: 'A clean slate — fresh Windows installation with zero bloat, all essential drivers installed and configured, every critical update applied, system settings optimized for performance, and a restore point secured before any change is ever made.'
   },
   {
     id: 5,
     title: 'Explore Linux',
-    description: 'Ubuntu, Mint, Fedora, and Manjaro setups tailored to your needs.'
+    description: 'Step into the world of open source — Ubuntu for its massive community and ease of use, Linux Mint for that familiar desktop feel, Fedora for the latest innovations, or Manjaro for Arch-based flexibility. We tailor the distro, desktop environment, and essential packages to match exactly what you need.'
   },
   {
     id: 6,
     title: 'Best Of Both Worlds',
-    description: 'Dual boot environments that combine Windows and Linux.'
+    description: 'Keep Windows for your design tools, games, and everyday apps, while running Linux for development, command-line power, and system programming — all on the same machine. With a properly configured dual boot or virtual machine setup, you get both ecosystems without compromise.'
   },
   {
     id: 7,
     title: 'Ready To Build',
-    description: 'Developer environments configured with everything you need to start coding.'
+    description: 'VS Code with every essential extension pre-loaded, Git and GitHub with SSH keys set up, Python with virtual environments, Java with the right JDK, C/C++ with MinGW or WSL, Android Studio with emulator config, Node.js, Docker, and even Ollama for local AI — your entire development environment, ready the moment you open your laptop.'
   },
   {
     id: 8,
     title: 'Knowledge Everywhere',
-    description: 'Obsidian, cloud sync, and productivity systems across all your devices.'
+    description: 'Your second brain, always in sync — Obsidian vault configured with your preferred plugins and themes, cloud sync set up across your laptop and phone, note-taking workflows streamlined, and a productivity system that keeps your study materials, code snippets, and project notes accessible wherever you are.'
   },
   {
     id: 9,
     title: 'Game Ready',
-    description: 'Gaming launchers, drivers, optimization, and performance tuning.'
+    description: 'Steam, Epic Games, Discord, and all your launchers installed and logged in — GPU drivers updated and configured for maximum performance, game-specific optimization profiles applied, background processes minimized, and every setting tuned to squeeze the best FPS out of your hardware.'
   },
   {
     id: 10,
     title: 'Your Ultimate Student Setup',
-    description: 'A laptop configured for studying, coding, gaming, and productivity.'
+    description: 'One laptop, fully transformed — study with a distraction-free note-taking system, code in a ready-to-go development environment, game at peak performance, create with professional tools, and sync everything across your devices. This is your laptop, optimized for every part of your student life.'
   }
 ];
 

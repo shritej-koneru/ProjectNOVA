@@ -18,9 +18,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-10 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 md:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-[10px] font-bold text-white">
-                N
-              </div>
+              <img src="/logo.png" alt="NOVA" className="h-8 w-8" />
               <span className="text-lg font-bold text-accent">{siteConfig.name}</span>
             </Link>
             <p className="mb-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
@@ -66,8 +64,8 @@ export default function Footer() {
             <nav className="space-y-3">
               <Link href="/contact" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Get Help</Link>
               <Link href="/about" className="block text-sm text-muted-foreground transition-colors hover:text-accent">FAQ</Link>
-              <Link href="/about" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Terms</Link>
-              <Link href="/about" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Privacy</Link>
+              <Link href="/terms" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Terms</Link>
+              <Link href="/terms" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Privacy</Link>
             </nav>
           </div>
         </div>

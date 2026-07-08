@@ -1,11 +1,16 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { services, type ServiceItem } from '@/data/services';
 import { menuItems } from '@/data/menu';
 import Breadcrumbs from '@/components/breadcrumbs';
 import ScrollReveal from '@/components/scroll-reveal';
+import AnimatedServiceCard from '@/components/animated-service-card';
+import dynamic from 'next/dynamic';
+
+const FanCarousel = dynamic(() => import('@/components/ui/card-fan-carousel'), { ssr: false });
 
 type ServiceKey = keyof typeof services;
 const categoryKeys = Object.keys(services) as ServiceKey[];
@@ -24,8 +29,20 @@ function lookupPrice(serviceName: string): string {
 }
 
 export default function ServicesPage() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
   const [search, setSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState<ServiceKey | 'all'>('all');
+  const [activeCategory, setActiveCategory] = useState<ServiceKey | 'all'>(
+    categoryParam && categoryKeys.includes(categoryParam as ServiceKey)
+      ? (categoryParam as ServiceKey)
+      : 'all'
+  );
+
+  useEffect(() => {
+    if (categoryParam && categoryKeys.includes(categoryParam as ServiceKey)) {
+      setActiveCategory(categoryParam as ServiceKey);
+    }
+  }, [categoryParam]);
 
   const allServices = useMemo(() => {
     const result: (ServiceItem & { category: string; categoryKey: ServiceKey; slug: string; price: string })[] = [];
@@ -67,6 +84,24 @@ export default function ServicesPage() {
             Every service is hand-delivered in a live remote session. You watch, we work.
           </p>
         </ScrollReveal>
+
+          <div className="mb-12 lg:mb-16">
+            <h2 className="text-xl md:text-2xl font-bold text-accent mb-8 text-center">Top Featured</h2>
+            <FanCarousel
+              cards={[
+                { imgUrl: '/images/Windows Installation.png', alt: 'Windows Installation', linkUrl: '?category=windows' },
+                { imgUrl: '/images/Performance Tuning.png', alt: 'Performance Tuning', linkUrl: '?category=optimization' },
+                { imgUrl: '/images/Developer Environment.avif', alt: 'Developer Environment', linkUrl: '?category=developer' },
+                { imgUrl: '/images/Gaming Environment.jpg', alt: 'Gaming Setup', linkUrl: '?category=gaming' },
+                { imgUrl: '/images/Linux Setup.webp', alt: 'Linux Setup', linkUrl: '?category=linux' },
+                { imgUrl: '/images/Dual Boot.avif', alt: 'Dual Boot Setup', linkUrl: '?category=linux' },
+                { imgUrl: '/images/Productivity Suites.jpeg', alt: 'Productivity Suite', linkUrl: '?category=productivity' },
+                { imgUrl: 'https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=600&h=800&fit=crop', alt: 'System Optimization', linkUrl: '?category=optimization' },
+                { imgUrl: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=600&h=800&fit=crop', alt: 'Customization', linkUrl: '?category=customization' },
+                { imgUrl: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&h=800&fit=crop', alt: 'Data Backup', linkUrl: '?category=windows' },
+              ]}
+            />
+          </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
           <aside className="lg:w-56 shrink-0">
@@ -111,12 +146,9 @@ export default function ServicesPage() {
                 <p className="text-sm mt-1">Try adjusting your search or category filter</p>
               </div>
             ) : (
-              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 content-auto">
                 {filtered.map((svc, i) => (
-                  <div
-                    key={svc.slug}
-                    className="group relative bg-surface/30 border border-surface/30 rounded-2xl p-5 transition-all hover:border-accent/40 hover:bg-surface/60 hover:shadow-[0_8px_32px_hsl(var(--accent)/0.08)]"
-                  >
+                  <AnimatedServiceCard key={svc.slug} className="p-5">
                     <Link href={`/services/${svc.slug}`} className="block">
                       <div className="h-12 w-12 mb-3 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                         <img src={svc.image} alt="" className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -134,7 +166,7 @@ export default function ServicesPage() {
                         Book
                       </Link>
                     </div>
-                  </div>
+                  </AnimatedServiceCard>
                 ))}
               </div>
             )}

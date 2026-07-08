@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { services, type ServiceItem } from '@/data/services';
 import ScrollReveal from '@/components/scroll-reveal';
 import ServiceModal from '@/components/service-modal';
+import AnimatedServiceCard from '@/components/animated-service-card';
 
 type ServiceKey = keyof typeof services;
 const categoryKeys = Object.keys(services) as ServiceKey[];
@@ -78,22 +79,20 @@ export default function Services() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {active.services.map((svc, i) => (
-                <motion.button
+                <motion.div
                   key={svc.name}
-                  onClick={() => setSelected(svc)}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.25, delay: i * 0.04 }}
-                  whileHover={{ y: -6, scale: 1.02 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="group relative bg-surface/30 border border-surface/30 rounded-2xl p-6 text-left transition-all hover:border-accent/40 hover:bg-surface/60 hover:shadow-[0_8px_32px_hsl(var(--accent)/0.08)]"
                 >
-                  <div className="h-14 w-14 mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <img src={svc.image} alt="" className="h-7 w-7 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  <h4 className="font-semibold text-foreground text-sm mb-2 group-hover:text-accent transition-colors">{svc.name}</h4>
-                  <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">{svc.description}</p>
-                </motion.button>
+                  <AnimatedServiceCard as="button" onClick={() => setSelected(svc)} className="p-6 text-left w-full">
+                    <div className="h-14 w-14 mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <img src={svc.image} alt="" className="h-7 w-7 opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <h4 className="font-semibold text-foreground text-sm mb-2 group-hover:text-accent transition-colors">{svc.name}</h4>
+                    <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">{svc.description}</p>
+                  </AnimatedServiceCard>
+                </motion.div>
               ))}
             </div>
           </motion.div>

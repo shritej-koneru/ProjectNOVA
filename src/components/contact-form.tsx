@@ -1,14 +1,16 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { services } from '@/data/services';
 
 const categoryEntries = Object.entries(services);
 
-const collegeYears = ['FY', 'SY', 'TY', 'BE', 'ME', 'PhD', 'Other'];
+const collegeYears = ['1st Year', '2nd Year', '3rd Year', '4th Year', '5th Year', 'Other'];
 
 const branches = ['CSE', 'IT', 'ECE', 'EEE', 'Mechanical', 'Civil', 'Other'];
+
+const FORM_EMAIL = 'projectnovaservices@gmail.com';
 
 function Input({ id, label, ...props }: { id: string; label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
@@ -44,35 +46,19 @@ export default function ContactForm() {
   const preselectedCategory = categoryEntries.find(([, cat]) =>
     cat.services.some(s => s.name === preselectedService)
   )?.[0] || '';
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+  const success = searchParams.get('success') === 'true';
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(preselectedCategory);
   const [selectedService, setSelectedService] = useState(preselectedService);
+  const [origin, setOrigin] = useState('');
+
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
 
   const currentServices = categoryEntries.find(([key]) => key === selectedCategory)?.[1]?.services || [];
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) throw new Error('Server error');
-
-      setSubmitted(true);
-      setError(false);
-    } catch {
-      setError(true);
-    }
-  };
-
-  if (submitted) {
+  if (success) {
     return (
       <div className="text-center py-12">
         <p className="text-accent text-xl font-semibold">Thank you! We&apos;ll get back to you shortly.</p>
@@ -80,13 +66,21 @@ export default function ContactForm() {
     );
   }
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem('name') as HTMLInputElement)?.value || 'unknown';
+    const svc = (form.elements.namedItem('service') as HTMLSelectElement)?.value || 'no service';
+    const subject = form.elements.namedItem('_subject') as HTMLInputElement;
+    if (subject) subject.value = `New enquiry from ${name} — ${svc}`;
+    setLoading(true);
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-surface/30 backdrop-blur-sm border border-surface/20 rounded-xl p-8">
-      {error && (
-        <div className="p-3 rounded-lg bg-destructive/15 border border-destructive/30 text-destructive text-sm" role="alert">
-          Failed to send. Please try again.
-        </div>
-      )}
+    <form action={`https://formsubmit.co/${FORM_EMAIL}`} method="POST" onSubmit={handleSubmit} className="space-y-6 bg-surface/30 backdrop-blur-sm border border-surface/20 rounded-xl p-8">
+      <input type="hidden" name="_captcha" value="true" />
+      <input type="hidden" name="_next" value={`${origin}/contact?success=true`} />
+      <input type="hidden" name="_subject" value="" data-subject />
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input id="contact-name" label="Name" name="name" type="text" required />
         <Input id="contact-phone" label="Phone Number" name="phone" type="tel" required />
@@ -129,9 +123,12 @@ export default function ContactForm() {
         <textarea id="contact-description" name="description" rows={4} required className="w-full px-4 py-3 bg-surface/50 border border-surface/30 rounded-lg text-foreground placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 transition-colors resize-none" />
       </div>
       <Input id="contact-preferred-time" label="Preferred Time (optional)" name="preferredTime" type="text" />
-      <button type="submit" className="w-full py-3 bg-accent/20 hover:bg-accent/30 text-accent font-medium rounded-lg transition-colors border border-accent/30">
-        Submit
+      <button type="submit" disabled={loading} className="w-full py-3 bg-accent/20 hover:bg-accent/30 text-accent font-medium rounded-lg transition-colors border border-accent/30 disabled:opacity-50">
+        {loading ? 'Redirecting to verify...' : 'Submit'}
       </button>
+      <p className="text-center text-xs text-muted-foreground">
+        You&apos;ll complete a secure captcha check before the message is sent.
+      </p>
     </form>
   );
 }
