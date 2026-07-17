@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: 'Project NOVA - Notebook Optimization, Virtualization & Advancement',
   description: 'Premium student-focused laptop transformation service. Transform your laptop from slow and cluttered to a powerful workstation.',
   icons: {
-    icon: '/favicon-32.png',
-    shortcut: '/favicon-32.png',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
     apple: '/logo.png',
   },
 };

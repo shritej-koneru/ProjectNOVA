@@ -84,7 +84,7 @@ export default function Navbar() {
       >
         <div className="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 max-w-7xl">
           <Link href="/" className="flex items-center gap-3 shrink-0">
-            <img src="/logo.png" alt="NOVA" className="h-8 w-8" />
+            <img src="/logo.png" alt="NOVA" className="h-8 w-8 rounded-full" />
             <span className="text-lg font-bold text-accent">{logo.text}</span>
           </Link>
 

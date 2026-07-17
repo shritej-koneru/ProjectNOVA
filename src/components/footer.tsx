@@ -4,10 +4,8 @@ import Link from 'next/link';
 import { siteConfig } from '@/data/site-config';
 
 const socialLinks = [
-  { name: 'Instagram', href: '#', icon: 'ph/instagram-logo' },
-  { name: 'WhatsApp', href: '#', icon: 'ph/whatsapp-logo' },
-  { name: 'YouTube', href: '#', icon: 'ph/youtube-logo' },
-  { name: 'Discord', href: '#', icon: 'ph/discord-logo' },
+  { name: 'Instagram', href: 'https://www.instagram.com/project_novaservices/', icon: 'ph/instagram-logo' },
+  { name: 'WhatsApp', href: 'https://wa.me/919704149889', icon: 'ph/whatsapp-logo' },
 ];
 
 export default function Footer() {
@@ -18,7 +16,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-10 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 md:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <img src="/logo.png" alt="NOVA" className="h-8 w-8" />
+              <img src="/logo.png" alt="NOVA" className="h-8 w-8 rounded-full" />
               <span className="text-lg font-bold text-accent">{siteConfig.name}</span>
             </Link>
             <p className="mb-4 max-w-sm text-sm leading-relaxed text-muted-foreground">

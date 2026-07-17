@@ -6,10 +6,8 @@ import ScrollReveal from '@/components/scroll-reveal';
 import ContactForm from '@/components/contact-form';
 
 const socials = [
-  { name: 'Instagram', href: '#', icon: 'ph/instagram-logo', handle: '@projectnova' },
-  { name: 'WhatsApp', href: '#', icon: 'ph/whatsapp-logo', handle: '+91 98765 43210' },
-  { name: 'YouTube', href: '#', icon: 'ph/youtube-logo', handle: 'Project NOVA' },
-  { name: 'Discord', href: '#', icon: 'ph/discord-logo', handle: 'nova community' },
+  { name: 'Instagram', href: 'https://www.instagram.com/project_novaservices/', icon: 'ph/instagram-logo', handle: '@project_novaservices' },
+  { name: 'WhatsApp', href: 'https://wa.me/919704149889', icon: 'ph/whatsapp-logo', handle: '9704149889' },
   { name: 'Email', href: '#', icon: 'ph/envelope', handle: 'hello@projectnova.in' },
 ];
 

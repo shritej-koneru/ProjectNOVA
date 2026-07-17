@@ -96,6 +96,26 @@ export default function AboutPage() {
             <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
+
+        <ScrollReveal>
+          <div className="rounded-2xl border border-accent/15 bg-surface/30 p-8 text-center">
+            <h2 className="text-2xl font-bold text-accent mb-8">Who you are working with?</h2>
+            <img src="https://github.com/shritej-koneru.png" alt="Shritej" className="h-20 w-20 rounded-full mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-foreground mb-1">Shritej</h3>
+            <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
+              Every repair, tune-up, and tweak is done personally by Shritej — no scripts, no automation. You get hands-on, human attention.
+            </p>
+            <a
+              href="https://bit.ly/shritej-koneru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-6 py-2.5 text-sm font-medium text-accent hover:bg-accent/20 transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              Portfolio
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
     </div>
   );

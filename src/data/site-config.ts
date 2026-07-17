@@ -28,13 +28,11 @@ export const siteConfig = {
   coreMessage: 'Your laptop should work for you, not against you.',
   contactInfo: {
     email: 'hello@projectnova.in',
-    phone: '+91 98765 43210',
+    phone: '9704149889',
   },
   socialLinks: [
-    { name: 'Instagram', href: 'https://instagram.com/projectnova', icon: 'ph/instagram-logo', handle: '@projectnova' },
-    { name: 'WhatsApp', href: 'https://wa.me/919876543210', icon: 'ph/whatsapp-logo', handle: '+91 98765 43210' },
-    { name: 'YouTube', href: 'https://youtube.com/@projectnova', icon: 'ph/youtube-logo', handle: 'Project NOVA' },
-    { name: 'Discord', href: 'https://discord.gg/projectnova', icon: 'ph/discord-logo', handle: 'nova community' },
+    { name: 'Instagram', href: 'https://www.instagram.com/project_novaservices/', icon: 'ph/instagram-logo', handle: '@project_novaservices' },
+    { name: 'WhatsApp', href: 'https://wa.me/919704149889', icon: 'ph/whatsapp-logo', handle: '9704149889' },
   ]
 };
 
