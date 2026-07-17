@@ -89,13 +89,13 @@ export default function ServicesPage() {
             <h2 className="text-xl md:text-2xl font-bold text-accent mb-8 text-center">Top Featured</h2>
             <FanCarousel
               cards={[
-                { imgUrl: '/images/Windows Installation.png', alt: 'Windows Installation', linkUrl: '?category=windows' },
-                { imgUrl: '/images/Performance Tuning.png', alt: 'Performance Tuning', linkUrl: '?category=optimization' },
-                { imgUrl: '/images/Developer Environment.avif', alt: 'Developer Environment', linkUrl: '?category=developer' },
-                { imgUrl: '/images/Gaming Environment.jpg', alt: 'Gaming Setup', linkUrl: '?category=gaming' },
-                { imgUrl: '/images/Linux Setup.webp', alt: 'Linux Setup', linkUrl: '?category=linux' },
-                { imgUrl: '/images/Dual Boot.avif', alt: 'Dual Boot Setup', linkUrl: '?category=linux' },
-                { imgUrl: '/images/Productivity Suites.jpeg', alt: 'Productivity Suite', linkUrl: '?category=productivity' },
+                { imgUrl: '/Images/Windows Installation.png', alt: 'Windows Installation', linkUrl: '?category=windows' },
+                { imgUrl: '/Images/Performance Tuning.png', alt: 'Performance Tuning', linkUrl: '?category=optimization' },
+                { imgUrl: '/Images/Developer Environment.avif', alt: 'Developer Environment', linkUrl: '?category=developer' },
+                { imgUrl: '/Images/Gaming Environment.jpg', alt: 'Gaming Setup', linkUrl: '?category=gaming' },
+                { imgUrl: '/Images/Linux Setup.webp', alt: 'Linux Setup', linkUrl: '?category=linux' },
+                { imgUrl: '/Images/Dual Boot.avif', alt: 'Dual Boot Setup', linkUrl: '?category=linux' },
+                { imgUrl: '/Images/Productivity Suites.jpeg', alt: 'Productivity Suite', linkUrl: '?category=productivity' },
                 { imgUrl: 'https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=600&h=800&fit=crop', alt: 'System Optimization', linkUrl: '?category=optimization' },
                 { imgUrl: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=600&h=800&fit=crop', alt: 'Customization', linkUrl: '?category=customization' },
                 { imgUrl: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&h=800&fit=crop', alt: 'Data Backup', linkUrl: '?category=windows' },
