@@ -4,11 +4,12 @@ import { Suspense } from 'react';
 import Breadcrumbs from '@/components/breadcrumbs';
 import ScrollReveal from '@/components/scroll-reveal';
 import ContactForm from '@/components/contact-form';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 const socials = [
   { name: 'Instagram', href: 'https://www.instagram.com/project_novaservices/', icon: 'ph/instagram-logo', handle: '@project_novaservices' },
   { name: 'WhatsApp', href: 'https://wa.me/919704149889', icon: 'ph/whatsapp-logo', handle: '9704149889' },
-  { name: 'Email', href: '#', icon: 'ph/envelope', handle: 'hello@projectnova.in' },
+  { name: 'Email', href: '#', icon: 'ph/envelope', handle: 'projectnovaservices@gmail.com' },
 ];
 
 const faqItems = [
@@ -34,46 +35,55 @@ export default function ContactPage() {
 
         <div className="grid gap-8 lg:gap-12 xl:grid-cols-[1fr_1.5fr]">
           <div className="space-y-6">
-            <div className="rounded-2xl border border-accent/15 bg-surface/30 p-6 lg:p-8 space-y-5">
-              <h2 className="text-lg font-semibold text-accent">Connect With Us</h2>
-              {socials.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.href}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="h-11 w-11 rounded-full border border-surface/30 bg-surface/40 flex items-center justify-center group-hover:border-accent/30 transition-colors shrink-0">
-                    <img src={`https://api.iconify.design/${s.icon}.svg?color=%23E9D985`} alt={s.name} className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">{s.name}</div>
-                    <div className="text-xs text-muted-foreground">{s.handle}</div>
-                  </div>
-                </a>
-              ))}
+            <div className="group relative overflow-visible rounded-2xl bg-surface/30">
+              <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={14} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <div className="p-6 lg:p-8 space-y-5">
+                <h2 className="text-lg font-semibold text-accent">Connect With Us</h2>
+                {socials.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    className="flex items-center gap-4 group"
+                  >
+                    <div className="h-11 w-11 rounded-full border border-surface/30 bg-surface/40 flex items-center justify-center group-hover:border-accent/30 transition-colors shrink-0">
+                      <img src={`https://api.iconify.design/${s.icon}.svg?color=%23E9D985`} alt={s.name} className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">{s.name}</div>
+                      <div className="text-xs text-muted-foreground">{s.handle}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <div className="rounded-2xl border border-accent/15 bg-surface/30 p-6 lg:p-8">
-              <h2 className="text-lg font-semibold text-accent mb-5">Quick FAQ</h2>
-              <div className="space-y-3">
-                {faqItems.map((item) => (
-                  <details key={item.q} className="group">
-                    <summary className="cursor-pointer text-sm font-medium text-muted-foreground hover:text-accent transition-colors list-none flex items-center gap-2">
-                      <span className="text-accent/60 group-open:rotate-90 transition-transform shrink-0">&rsaquo;</span>
-                      {item.q}
-                    </summary>
-                    <p className="mt-2 text-xs text-muted-foreground/80 leading-relaxed pl-5">{item.a}</p>
-                  </details>
-                ))}
+            <div className="group relative overflow-visible rounded-2xl bg-surface/30">
+              <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={14} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <div className="p-6 lg:p-8">
+                <h2 className="text-lg font-semibold text-accent mb-5">Quick FAQ</h2>
+                <div className="space-y-3">
+                  {faqItems.map((item) => (
+                    <details key={item.q} className="group">
+                      <summary className="cursor-pointer text-sm font-medium text-muted-foreground hover:text-accent transition-colors list-none flex items-center gap-2">
+                        <span className="text-accent/60 group-open:rotate-90 transition-transform shrink-0">&rsaquo;</span>
+                        {item.q}
+                      </summary>
+                      <p className="mt-2 text-xs text-muted-foreground/80 leading-relaxed pl-5">{item.a}</p>
+                    </details>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-accent/15 bg-surface/30 p-6 lg:p-10">
-            <h2 className="text-lg font-semibold text-accent mb-6">Send Us a Message</h2>
-            <Suspense fallback={<div className="h-96 rounded-xl bg-surface/20 animate-pulse" />}>
-              <ContactForm />
-            </Suspense>
+          <div className="group relative overflow-visible rounded-2xl bg-surface/30">
+            <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={14} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <div className="p-6 lg:p-10">
+              <h2 className="text-lg font-semibold text-accent mb-6">Send Us a Message</h2>
+              <Suspense fallback={<div className="h-96 rounded-xl bg-surface/20 animate-pulse" />}>
+                <ContactForm />
+              </Suspense>
+            </div>
           </div>
         </div>
       </div>

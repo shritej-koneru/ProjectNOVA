@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/scroll-reveal';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 const highlights = [
   { title: 'Hand-Crafted', description: 'Every setup is done manually in a live session — no scripts, no automation.' },
@@ -31,8 +32,9 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="rounded-2xl border border-accent/15 bg-surface/30 p-6 text-center hover:border-accent/30 transition-colors"
+              className="group relative overflow-visible rounded-2xl border border-accent/15 bg-surface/30 p-6 text-center hover:border-accent/30 transition-colors"
             >
+              <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={18} proximity={64} inactiveZone={0.01} borderWidth={4} />
               <h3 className="font-semibold text-accent mb-2 text-lg">{item.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
             </motion.div>

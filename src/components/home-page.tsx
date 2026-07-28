@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { services } from '@/data/services';
 import ScrollReveal from '@/components/scroll-reveal';
 import WelcomePopup from '@/components/welcome-popup';
+import ScrollIndicator from '@/components/scroll-indicator';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 const featuredServices = (() => {
   const result: { name: string; description: string; image: string; category: string; slug: string }[] = [];
@@ -28,6 +30,7 @@ export default function HomePage() {
   return (
     <>
       <WelcomePopup />
+      <ScrollIndicator />
       <Hero />
       <ScrollStory />
 
@@ -41,21 +44,22 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredServices.map((svc, i) => (
-              <motion.div
-                key={svc.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-              >
-                <Link
-                  href={`/services/${svc.slug}`}
-                  className="group block bg-surface/30 border border-surface/30 rounded-2xl p-6 transition-all hover:border-accent/40 hover:bg-surface/60 hover:shadow-[0_8px_32px_hsl(var(--accent)/0.08)]"
+              {featuredServices.map((svc, i) => (
+                <motion.div
+                  key={svc.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
                 >
-                  <div className="h-14 w-14 mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <img src={svc.image} alt="" className="h-7 w-7 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  </div>
+                  <Link
+                    href={`/services/${svc.slug}`}
+                    className="group relative block overflow-visible bg-surface/30 border border-surface/30 rounded-2xl p-6 transition-all hover:border-accent/40 hover:bg-surface/60 hover:shadow-[0_8px_32px_hsl(var(--accent)/0.08)]"
+                  >
+                    <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={18} proximity={64} inactiveZone={0.01} borderWidth={4} />
+                    <div className="h-14 w-14 mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <img src={svc.image} alt="" className="h-7 w-7 opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </div>
                   <div className="text-xs text-accent/60 mb-1.5 font-medium uppercase tracking-wider">{svc.category}</div>
                   <h4 className="font-semibold text-foreground text-sm mb-2 group-hover:text-accent transition-colors">{svc.name}</h4>
                   <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{svc.description}</p>

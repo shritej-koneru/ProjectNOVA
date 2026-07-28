@@ -148,8 +148,8 @@ export default function ServicesPage() {
             ) : (
               <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 content-auto">
                 {filtered.map((svc, i) => (
-                  <AnimatedServiceCard key={svc.slug} className="p-5">
-                    <Link href={`/services/${svc.slug}`} className="block">
+                  <AnimatedServiceCard key={svc.slug} className="p-5 h-full flex flex-col">
+                    <Link href={`/services/${svc.slug}`} className="block flex-1">
                       <div className="h-12 w-12 mb-3 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                         <img src={svc.image} alt="" className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity" />
                       </div>
@@ -157,11 +157,11 @@ export default function ServicesPage() {
                       <h3 className="font-semibold text-foreground text-sm mb-1.5 group-hover:text-accent transition-colors">{svc.name}</h3>
                       <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed mb-3">{svc.description}</p>
                     </Link>
-                    <div className="flex items-center justify-between">
-                      {svc.price && <span className="text-xs font-semibold text-accent">{svc.price}</span>}
+                    <div className="mt-4 flex items-center gap-3">
+                      {svc.price ? <span className="text-xs font-semibold text-accent">{svc.price}</span> : <span className="min-w-0 flex-1" />}
                       <Link
                         href={`/contact?service=${encodeURIComponent(svc.name)}`}
-                        className="text-xs text-accent/70 hover:text-accent transition-colors font-medium"
+                        className="ml-auto text-xs text-accent/70 hover:text-accent transition-colors font-medium"
                       >
                         Book
                       </Link>

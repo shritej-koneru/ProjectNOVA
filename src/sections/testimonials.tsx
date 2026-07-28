@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { testimonials } from '@/data/content';
 import ScrollReveal from '@/components/scroll-reveal';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 export default function Testimonials() {
   const reducedMotion = useReducedMotion();
@@ -25,8 +26,9 @@ export default function Testimonials() {
             {testimonials.map((text, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-[85vw] max-w-[340px] sm:w-[340px] bg-surface/30 border border-surface/30 rounded-xl p-6 text-center"
+                className="group relative flex-shrink-0 w-[85vw] max-w-[340px] sm:w-[340px] overflow-visible bg-surface/30 border border-surface/30 rounded-xl p-6 text-center"
               >
+                <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={18} proximity={64} inactiveZone={0.01} borderWidth={4} />
                 <p className="text-muted-foreground italic text-sm leading-relaxed">&ldquo;{text}&rdquo;</p>
                 <div className="mt-4 flex justify-center gap-1" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, s) => (
@@ -51,8 +53,9 @@ export default function Testimonials() {
             {doubled.map((text, i) => (
               <div
                 key={`${text}-${i}`}
-                className="flex-shrink-0 w-[85vw] max-w-[340px] sm:w-[340px] bg-surface/30 border border-surface/30 rounded-xl p-6 text-center"
+                className="group relative flex-shrink-0 w-[85vw] max-w-[340px] sm:w-[340px] overflow-visible bg-surface/30 border border-surface/30 rounded-xl p-6 text-center"
               >
+                <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={18} proximity={64} inactiveZone={0.01} borderWidth={4} />
                 <p className="text-muted-foreground italic text-sm leading-relaxed">&ldquo;{text}&rdquo;</p>
                 <div className="mt-4 flex justify-center gap-1" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, s) => (

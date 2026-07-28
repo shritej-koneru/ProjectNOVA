@@ -10,7 +10,7 @@
 4. **Warranty Void** — OS changes, BIOS/UEFI, partitioning may void manufacturer warranty
 5. **Account & Service Bans** — customer assumes risk of TOS violations
 6. **Malware & Security** — no guarantee on third-party software security
-7. **No Refunds** — case-by-case evaluation
+7. **Refund (Case by Case)** — case-by-case evaluation
 8. **Support & Maintenance** — initial setup only; additional work may incur charges
 9. **Hardware Limitations** — software cannot overcome hardware limits
 10. **Service Verification** — verify during/after session

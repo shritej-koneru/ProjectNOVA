@@ -71,7 +71,7 @@ export const termsSections = [
   },
   {
     id: 7,
-    title: 'NO REFUNDS',
+    title: 'REFUND (CASE BY CASE)',
     content: [
       'Service fees compensate for time, labor, research, configuration, and setup work performed. Refund requests are evaluated on a case-by-case basis.'
     ]

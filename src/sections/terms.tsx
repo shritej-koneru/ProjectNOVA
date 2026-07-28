@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { termsSections } from '@/data/terms';
 import ScrollReveal from '@/components/scroll-reveal';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 export default function Terms() {
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
@@ -39,32 +40,35 @@ export default function Terms() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] } },
               }}
-              className="border border-surface/30 rounded-lg overflow-hidden"
+              className="group relative overflow-visible rounded-lg"
             >
-              <button
-                onClick={() => toggleExpand(section.id)}
-                className="w-full flex items-center justify-between px-6 py-4 hover:bg-surface/50 transition-colors min-h-[48px] text-left"
-                aria-expanded={expandedIds.includes(section.id)}
-                aria-controls={`terms-content-${section.id}`}
-              >
-                <h3 className="font-semibold text-accent pr-4">{section.title}</h3>
-                <span className="text-muted-foreground text-sm shrink-0">
-                  {expandedIds.includes(section.id) ? '▲' : '▼'}
-                </span>
-              </button>
-              {expandedIds.includes(section.id) && (
-                <motion.div
-                  id={`terms-content-${section.id}`}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="px-6 pb-4 text-muted-foreground space-y-3"
+              <GlowingEffect className="rounded-[inherit]" glow disabled={false} spread={18} proximity={64} inactiveZone={0.01} borderWidth={4} />
+              <div className="overflow-hidden rounded-lg border border-surface/30 bg-surface/30">
+                <button
+                  onClick={() => toggleExpand(section.id)}
+                  className="w-full flex items-center justify-between px-6 py-4 hover:bg-surface/50 transition-colors min-h-[48px] text-left"
+                  aria-expanded={expandedIds.includes(section.id)}
+                  aria-controls={`terms-content-${section.id}`}
                 >
-                  {section.content.map((line, lineIndex) => (
-                    <p key={`${section.id}-${lineIndex}`}>{line}</p>
-                  ))}
-                </motion.div>
-              )}
+                  <h3 className="font-semibold text-accent pr-4">{section.title}</h3>
+                  <span className="text-muted-foreground text-sm shrink-0">
+                    {expandedIds.includes(section.id) ? '▲' : '▼'}
+                  </span>
+                </button>
+                {expandedIds.includes(section.id) && (
+                  <motion.div
+                    id={`terms-content-${section.id}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="px-6 pb-4 text-muted-foreground space-y-3"
+                  >
+                    {section.content.map((line, lineIndex) => (
+                      <p key={`${section.id}-${lineIndex}`}>{line}</p>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
             </motion.div>
           ))}
         </motion.div>

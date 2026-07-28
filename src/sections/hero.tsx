@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { hero } from '@/data/content';
+import { TextReveal } from '@/components/ui/cascade-text';
 
 const ShaderAnimation = dynamic(() => {
   if (typeof window !== 'undefined' && window.innerWidth < 768) {
@@ -32,15 +33,59 @@ export default function Hero() {
             Project N.O.V.A.
           </motion.p>
           <motion.h1
-            className="font-heading text-4xl font-bold leading-[0.95] tracking-tight text-foreground md:text-5xl lg:text-7xl"
+            className="flex flex-col items-center lg:items-start"
             initial={{ opacity: 0, y: 44, filter: 'blur(14px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
           >
-            {hero.headline}
-            <span className="block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              {hero.subheadline}
-            </span>
+            <TextReveal
+              as="span"
+              text="Transform Your"
+              hoverText="Refresh Every"
+              fontSize="clamp(2.8rem, 8vw, 4.75rem)"
+              color="#e8edf3"
+              hoverPalette={["#caf0f8", "#90e0ef", "#00b4d8", "#0077b6", "#0077b6"]}
+              staggerDelay={18}
+              duration={280}
+              direction="up"
+              className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
+            />
+            <TextReveal
+              as="span"
+              text="Laptop."
+              hoverText="Component."
+              fontSize="clamp(2.8rem, 8vw, 4.75rem)"
+              color="#e8edf3"
+              hoverPalette={["#caf0f8", "#90e0ef", "#00b4d8", "#0077b6", "#0077b6"]}
+              staggerDelay={18}
+              duration={280}
+              direction="up"
+              className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
+            />
+            <TextReveal
+              as="span"
+              text="Unlock Its"
+              hoverText="Maximize Daily"
+              fontSize="clamp(2.8rem, 8vw, 4.75rem)"
+              color="#0077b6"
+              hoverPalette={["#03045e", "#0077b6", "#00b4d8", "#90e0ef", "#caf0f8"]}
+              staggerDelay={18}
+              duration={280}
+              direction="up"
+              className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
+            />
+            <TextReveal
+              as="span"
+              text="Potential."
+              hoverText="Performance."
+              fontSize="clamp(2.8rem, 8vw, 4.75rem)"
+              color="#0077b6"
+              hoverPalette={["#03045e", "#0077b6", "#00b4d8", "#90e0ef", "#caf0f8"]}
+              staggerDelay={18}
+              duration={280}
+              direction="up"
+              className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
+            />
           </motion.h1>
           <motion.p
             className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0"

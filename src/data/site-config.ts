@@ -27,7 +27,7 @@ export const siteConfig = {
   ],
   coreMessage: 'Your laptop should work for you, not against you.',
   contactInfo: {
-    email: 'hello@projectnova.in',
+    email: 'projectnovaservices@gmail.com',
     phone: '9704149889',
   },
   socialLinks: [
