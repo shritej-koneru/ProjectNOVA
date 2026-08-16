@@ -5,13 +5,13 @@ export interface PaletteDef {
 
 export const palettes: PaletteDef[] = [
   {
-    name: 'Purple Navy',
+    name: 'Deep Ocean',
     stops: [
-      '0 0% 92%',
-      '249 47% 85%',
-      '265 17% 46%',
-      '221 30% 27%',
-      '197 47% 18%',
+      '222 40% 22%',
+      '213 52% 30%',
+      '200 50% 33%',
+      '188 42% 32%',
+      '172 38% 32%',
     ],
   },
   {

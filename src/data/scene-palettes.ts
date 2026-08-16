@@ -57,7 +57,7 @@ export function derivePalette(base: string): ScenePalette {
     background: `${hue} ${lerpSat(s, l, 16)}% 16%`,
     foreground: `${hue} ${lerpSat(s, l, 86)}% 86%`,
     surface: `${hue} ${lerpSat(s, l, 12)}% 12%`,
-    primary: `${hue} ${lerpSat(s, l, 45)}% 45%`,
+    primary: `${hue} ${lerpSat(s, l, 36)}% 36%`,
     secondary: `${hue} ${lerpSat(s, l, 38)}% 38%`,
     accent: `${hue} ${lerpSat(s, l, 68)}% 68%`,
     mutedForeground: `${hue} ${lerpSat(s, l, 72)}% 72%`,
