@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-16T12:34:04.071Z",
+  "title": "Design System: Project NOVA",
+  "extensions": {
+    "colorMeta": {
+      "void-charcoal":   { "role": "neutral", "displayName": "Void Charcoal",   "canonical": "hsl(0 0% 16%)",   "tonalRamp": ["hsl(0 0% 15%)","hsl(0 0% 22%)","hsl(0 0% 30%)","hsl(0 0% 40%)","hsl(0 0% 52%)","hsl(0 0% 64%)","hsl(0 0% 78%)","hsl(0 0% 92%)"] },
+      "graphite-well":   { "role": "neutral", "displayName": "Graphite Well",   "canonical": "hsl(0 0% 12%)",   "tonalRamp": ["hsl(0 0% 11%)","hsl(0 0% 18%)","hsl(0 0% 26%)","hsl(0 0% 36%)","hsl(0 0% 48%)","hsl(0 0% 60%)","hsl(0 0% 74%)","hsl(0 0% 90%)"] },
+      "pitch-gray":      { "role": "neutral", "displayName": "Pitch Gray",      "canonical": "hsl(0 0% 14%)",   "tonalRamp": ["hsl(0 0% 13%)","hsl(0 0% 20%)","hsl(0 0% 28%)","hsl(0 0% 38%)","hsl(0 0% 50%)","hsl(0 0% 62%)","hsl(0 0% 76%)","hsl(0 0% 91%)"] },
+      "carbon-fiber":    { "role": "neutral", "displayName": "Carbon Fiber",    "canonical": "hsl(0 0% 20%)",   "tonalRamp": ["hsl(0 0% 19%)","hsl(0 0% 26%)","hsl(0 0% 34%)","hsl(0 0% 44%)","hsl(0 0% 54%)","hsl(0 0% 66%)","hsl(0 0% 78%)","hsl(0 0% 92%)"] },
+      "fogline":         { "role": "neutral", "displayName": "Fogline",         "canonical": "hsl(0 0% 25%)",   "tonalRamp": ["hsl(0 0% 24%)","hsl(0 0% 32%)","hsl(0 0% 40%)","hsl(0 0% 50%)","hsl(0 0% 60%)","hsl(0 0% 70%)","hsl(0 0% 82%)","hsl(0 0% 94%)"] },
+      "smoke-steel":     { "role": "primary", "displayName": "Smoke Steel",     "canonical": "hsl(0 0% 45%)",   "tonalRamp": ["hsl(0 0% 42%)","hsl(0 0% 46%)","hsl(0 0% 50%)","hsl(0 0% 54%)","hsl(0 0% 58%)","hsl(0 0% 64%)","hsl(0 0% 72%)","hsl(0 0% 84%)"] },
+      "slate-smoke":     { "role": "secondary", "displayName": "Slate Smoke",   "canonical": "hsl(0 0% 38%)",   "tonalRamp": ["hsl(0 0% 36%)","hsl(0 0% 40%)","hsl(0 0% 44%)","hsl(0 0% 48%)","hsl(0 0% 54%)","hsl(0 0% 62%)","hsl(0 0% 72%)","hsl(0 0% 84%)"] },
+      "silver-echo":     { "role": "accent", "displayName": "Silver Echo",      "canonical": "hsl(0 0% 68%)",   "tonalRamp": ["hsl(0 0% 62%)","hsl(0 0% 66%)","hsl(0 0% 70%)","hsl(0 0% 74%)","hsl(0 0% 78%)","hsl(0 0% 82%)","hsl(0 0% 88%)","hsl(0 0% 95%)"] },
+      "ash-white":       { "role": "neutral", "displayName": "Ash White",       "canonical": "hsl(0 0% 86%)",   "tonalRamp": ["hsl(0 0% 82%)","hsl(0 0% 85%)","hsl(0 0% 88%)","hsl(0 0% 91%)","hsl(0 0% 94%)","hsl(0 0% 96%)","hsl(0 0% 98%)","hsl(0 0% 100%)"] },
+      "storm-mist":      { "role": "neutral", "displayName": "Storm Mist",      "canonical": "hsl(0 0% 72%)",   "tonalRamp": ["hsl(0 0% 66%)","hsl(0 0% 70%)","hsl(0 0% 74%)","hsl(0 0% 78%)","hsl(0 0% 82%)","hsl(0 0% 86%)","hsl(0 0% 90%)","hsl(0 0% 96%)"] },
+      "snow-white":      { "role": "neutral", "displayName": "Snow White",      "canonical": "hsl(0 0% 95%)",   "tonalRamp": ["hsl(0 0% 90%)","hsl(0 0% 92%)","hsl(0 0% 94%)","hsl(0 0% 95%)","hsl(0 0% 96%)","hsl(0 0% 97%)","hsl(0 0% 98%)","hsl(0 0% 100%)"] },
+      "alarm-red":       { "role": "danger", "displayName": "Alarm Red",        "canonical": "hsl(0 84% 60%)",  "tonalRamp": ["hsl(0 84% 30%)","hsl(0 84% 38%)","hsl(0 84% 46%)","hsl(0 84% 54%)","hsl(0 84% 60%)","hsl(0 84% 68%)","hsl(0 84% 80%)","hsl(0 84% 92%)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero lines only. Bold, tight, no uppercase." },
+      "headline": { "displayName": "Headline", "purpose": "Scroll-story scene titles." },
+      "title": { "displayName": "Title", "purpose": "Section headings, card titles, modal names." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs and descriptions." },
+      "label": { "displayName": "Label", "purpose": "Kickers, footer column headers, form labels; uppercase." }
+    },
+    "shadows": [
+      { "name": "hairline-separator", "value": "0 1px 0 rgba(255,255,255,0.06)", "purpose": "Scrolled navbar bottom edge." },
+      { "name": "cta-glow", "value": "0 0 40px hsl(var(--accent) / 0.18)", "purpose": "Hero primary CTA; the signature accent glow." },
+      { "name": "primary-lift", "value": "0 8px 24px hsl(var(--primary) / 0.25)", "purpose": "Solid pill CTAs at rest; hover 0 12px 32px / 0.30." },
+      { "name": "card-hover-glow", "value": "0 8px 40px hsl(var(--accent) / 0.12)", "purpose": "Service cards on hover." },
+      { "name": "ambient-window-glow", "value": "0 40px 140px hsl(var(--primary) / 0.28)", "purpose": "Hero and story mock windows." },
+      { "name": "modal-halo", "value": "0 0 60px hsl(var(--accent) / 0.12)", "purpose": "Service modal." },
+      { "name": "text-glow-sm", "value": "0 0 10px hsl(var(--primary) / 0.5)", "purpose": "Accent headline moments." },
+      { "name": "text-glow-md", "value": "0 0 20px hsl(var(--primary) / 0.3)", "purpose": "Accent headline moments." },
+      { "name": "text-glow-lg", "value": "0 0 30px hsl(var(--accent) / 0.14)", "purpose": "Accent headline moments." }
+    ],
+    "motion": [
+      { "name": "ease-cinematic", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default eased reveal." },
+      { "name": "duration-200", "value": "200ms", "purpose": "State transitions (hover, borders)." },
+      { "name": "duration-300", "value": "300ms", "purpose": "Dropdown/modal open-close." },
+      { "name": "duration-500", "value": "500ms", "purpose": "Scroll-story crossfades." },
+      { "name": "scroll-story", "value": "900svh pinned, 10 scenes, recolorizes on scroll", "purpose": "Cinematic narrative spine." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion disables palette crossfade, shader, floating, and glow", "purpose": "Motion sensitivity guard." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled pill CTA; the workhorse action color at 45% lightness with a primary glow.",
+      "html": "<button class=\"ds-btn-primary\">Get Started</button>",
+      "css": ".ds-btn-primary { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0 2rem; height: 3rem; border-radius: 9999px; border: none; cursor: pointer; box-shadow: 0 8px 24px hsl(var(--primary) / 0.25); transition: opacity 0.2s, box-shadow 0.2s; } .ds-btn-primary:hover { opacity: 0.9; box-shadow: 0 12px 32px hsl(var(--primary) / 0.3); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--accent)); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outlined glass secondary action; background surface, hairline border, storm-mist text.",
+      "html": "<button class=\"ds-btn-ghost\">Explore Services</button>",
+      "css": ".ds-btn-ghost { background: hsl(var(--surface) / 0.5); color: hsl(var(--muted-foreground)); font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; padding: 0 1.25rem; height: 2.5rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: color 0.2s, border-color 0.2s; } .ds-btn-ghost:hover { color: hsl(var(--foreground)); border-color: hsl(var(--accent) / 0.3); } .ds-btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--accent)); }"
+    },
+    {
+      "name": "Hero Glass CTA",
+      "kind": "button",
+      "refersTo": "button-hero",
+      "description": "Accent-tinted glass pill with shimmer sweep; the hero's secondary, glow-lit action.",
+      "html": "<button class=\"ds-btn-hero\"><span class=\"ds-btn-hero-label\">Get Started</span></button>",
+      "css": ".ds-btn-hero { position: relative; overflow: hidden; background: hsl(var(--accent) / 0.15); color: hsl(var(--accent)); font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; padding: 0 1.75rem; height: 3rem; border-radius: 9999px; border: 1px solid hsl(var(--accent) / 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); cursor: pointer; box-shadow: 0 0 40px hsl(var(--accent) / 0.18); transition: box-shadow 0.2s; } .ds-btn-hero-label { position: relative; z-index: 1; } .ds-btn-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%); transform: translateX(-100%); transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-hero:hover { box-shadow: 0 0 52px hsl(var(--accent) / 0.26); } .ds-btn-hero:hover::after { transform: translateX(100%); } .ds-btn-hero:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--accent)); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Glass form field; surface fill, fogline border, rounded-lg, accent focus ring.",
+      "html": "<label class=\"ds-input-wrap\">Full Name<br><input class=\"ds-input\" type=\"text\" placeholder=\"Your name\"></label>",
+      "css": ".ds-input-wrap { display: block; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: hsl(var(--muted-foreground)); } .ds-input { display: block; width: 100%; margin-top: 0.5rem; background: hsl(var(--surface) / 0.5); color: hsl(var(--foreground)); font-size: 1rem; font-weight: 400; letter-spacing: normal; text-transform: none; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid hsl(var(--surface)); outline: none; } .ds-input::placeholder { color: hsl(var(--muted-foreground)); } .ds-input:focus-visible { border-color: hsl(var(--accent) / 0.5); box-shadow: 0 0 0 2px hsl(var(--accent) / 0.5); }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header link; rest storm-mist, hover accent with accent/5 background, active accent/12.",
+      "html": "<nav aria-label=\"Main\"><a class=\"ds-nav-link\" href=\"#\">Services</a><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav-link { display: inline-block; padding: 0.5rem 0.75rem; border-radius: 8px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: hsl(var(--muted-foreground)); text-decoration: none; transition: color 0.2s, background-color 0.2s; } .ds-nav-link:hover { color: hsl(var(--accent)); background: hsl(var(--accent) / 0.05); } .ds-nav-link-active { color: hsl(var(--accent)); background: hsl(var(--accent) / 0.12); } .ds-nav-link:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--accent)); }"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "service-card",
+      "description": "Glass slab card; rounded-2xl, surface fill, hairline border, glow lift on hover with cursor-tracked border.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"/></svg></div><h3 class=\"ds-card-title\">Windows Optimization</h3><p class=\"ds-card-text\">Debloat, tune, and lock in driver stability.</p></article>",
+      "css": ".ds-card { position: relative; padding: 1.5rem; border-radius: 16px; background: hsl(var(--surface) / 0.3); border: 1px solid hsl(var(--surface)); transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s; } .ds-card:hover { background: hsl(var(--surface) / 0.6); border-color: hsl(var(--accent) / 0.4); box-shadow: 0 8px 40px hsl(var(--accent) / 0.12); } .ds-card-icon { display: flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border-radius: 12px; background: hsl(var(--surface) / 0.5); color: hsl(var(--accent)); margin-bottom: 1rem; } .ds-card-title { font-family: 'Inter Tight', system-ui, sans-serif; font-weight: 700; font-size: 1.25rem; color: hsl(var(--foreground)); margin: 0 0 0.5rem; } .ds-card-text { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.6; color: hsl(var(--muted-foreground)); margin: 0; } .ds-card:focus-within { box-shadow: 0 0 0 2px hsl(var(--accent)); }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Rounded-xl filter chip; active = accent border, accent/15 fill, accent text and glow.",
+      "html": "<button class=\"ds-chip\">Windows</button><button class=\"ds-chip ds-chip-active\">Linux</button>",
+      "css": ".ds-chip { padding: 0.75rem 1.25rem; border-radius: 12px; background: hsl(var(--surface) / 0.3); border: 1px solid hsl(var(--surface)); color: hsl(var(--muted-foreground)); font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: color 0.2s, border-color 0.2s, box-shadow 0.2s; } .ds-chip:hover { border-color: hsl(var(--accent) / 0.3); } .ds-chip-active { background: hsl(var(--accent) / 0.15); border-color: hsl(var(--accent) / 0.6); color: hsl(var(--accent)); box-shadow: 0 0 20px hsl(var(--accent) / 0.15); } .ds-chip:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--accent)); }"
+    },
+    {
+      "name": "Modal Close",
+      "kind": "button",
+      "refersTo": "service-modal",
+      "description": "Circular close affordance; 40px glass disc that reads larger on touch, focus-ring on keyboard.",
+      "html": "<button class=\"ds-modal-close\" aria-label=\"Close dialog\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" aria-hidden=\"true\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"/><line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"/></svg></button>",
+      "css": ".ds-modal-close { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: hsl(var(--surface) / 0.6); border: 1px solid hsl(var(--surface)); color: hsl(var(--muted-foreground)); cursor: pointer; transition: color 0.2s, border-color 0.2s; } .ds-modal-close:hover { color: hsl(var(--foreground)); border-color: hsl(var(--accent) / 0.4); } .ds-modal-close:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--accent)); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Nova Forge",
+    "overview": "Project NOVA is a premium, cinematic dark console — a near-black glass workbench where a student's laptop gets reforged into something better. The aesthetic is technical and trustworthy but never cold: layered glass slabs, a single ambient accent, glow light doing the depth work that heavy shadows normally do, and a scroll-driven story that recolorizes the entire interface as you read it. It borrows the restrained, content-first density of premium hardware launch pages (Apple, Linear, Stripe, Arc) and runs it through a student-friendly lens that honors the \"technical, trustworthy, modern, premium\" brand personality.\n\nEverything sits on a dark tonal ladder built from one base HSL color: deep background (16%), darker surface wells (12%), a mid-tone primary (45%) for actions, a brighter accent (68%) for highlights, and soft text roles at 86% and 72%. Because every color is an HSL CSS custom property derived from that single base at runtime, the site can drift hue as the scroll story progresses or when the owner switches among candidate palettes (Purple Navy, Warm Taupe, Dusty Rose). The current canonical base is achromatic gray; the palette machinery is the system, not the gray.\n\nMotion is cinematic and purposeful — eased reveals (cubic-bezier(0.22, 1, 0.36, 1)), a pinned 10-scene scroll narrative, cursor-tracked glow borders, shimmer sweeps, dithering dots — but always tamed by prefers-reduced-motion, and touch targets stay at least 44×44px because students browse on laptops and phones alike. Confirmed visual rejections: no hard black drop shadows on interactive surfaces, no large accent-colored fills, no letter-spaced headlines.",
+    "keyCharacteristics": [
+      "Palette-driven color: all colors are HSL CSS variables written at runtime from a single base color (currently grayscale).",
+      "Glassmorphism as material: backdrop-blur surfaces, translucent hairlines, layered tonal slabs.",
+      "Glow-as-structure: accent box-shadows, text-shadows, and blurred radial glows replace heavy drop shadows.",
+      "Cinematic scroll story: 10 pinned scenes recolorize the site and crossfade titles as you scroll.",
+      "Inter Tight display / Inter body: bold tight headings, wide-tracked uppercase labels.",
+      "44px touch targets and full reduced-motion support."
+    ],
+    "rules": [
+      { "name": "The Live Palette Rule", "body": "Every color in a new screen must come from the 7 runtime CSS variables (hsl(var(--background)), hsl(var(--accent)), …). A hardcoded hex on a screen will not recolorize with the scroll story and will silently break the palette system.", "section": "colors" },
+      { "name": "The Value Ladder Rule", "body": "The derivePalette lightness values are fixed — background 16%, surface 12%, primary 45%, secondary 38%, accent 68%, foreground 86%, muted foreground 72%. Respect the ladder; don't invent new lightnesses outside the derivePalette formula.", "section": "colors" },
+      { "name": "The Accent Restraint Rule", "body": "The accent (the brightest non-white role) is reserved for highlights: active nav, borders, glows, kicker text, small dots. It must never be a large filled area — its rarity is the point.", "section": "colors" },
+      { "name": "The Tight-Headline Rule", "body": "Display and headline text stays 700-weight with tight line-height (0.9–1.25) and tight tracking. Never letter-space or reduce the weight of headings; that voice belongs to Inter Tight.", "section": "typography" },
+      { "name": "The One-Kicker Rule", "body": "Uppercase, wide-tracked labels are the only letter-spaced text on the site, and they're reserved for small labels (kickers, footer headers, form labels). Body and headings never letter-space.", "section": "typography" },
+      { "name": "The Glow-As-Structure Rule", "body": "Interactive depth is conveyed with accent-colored glow shadows and backdrop blur — never hard black drop shadows on buttons or cards. Black/opacity shadows are only for overlays and floating menus.", "section": "elevation" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces rest flat (bg-surface/30 or lower, hairline borders). Glow and blur appear only as a response to state — hover, scroll, or focus.", "section": "elevation" },
+      { "name": "The Layered Radius Rule", "body": "Radius grows from the inside out — inputs (8px) < inner panels (12px) < cards (16px) < mock windows (24–32px). Never invert the order; an input must never be rounder than the card that contains it.", "section": "shapes" },
+      { "name": "The Pills-Are-CTA Rule", "body": "Fully-round pills (9999px) belong to call-to-action buttons and small floating chips only. Ladder radii belong to inputs, links, and cards.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do consume every color through the runtime CSS variables (hsl(var(--accent)), etc.) so palette switching and scroll recolorization keep working.",
+      "Do keep the value ladder fixed: background 16%, surface 12%, primary 45%, secondary 38%, accent 68%, foreground 86%, muted foreground 72%.",
+      "Do make every CTA a full pill with semibold label type and an accent or primary glow shadow.",
+      "Do apply focus-visible rings — ring-2 ring-accent/50 on inputs, ring-2 ring-accent on buttons — and drop the default outline.",
+      "Do keep interactive targets ≥44×44px and respect prefers-reduced-motion (disable palette crossfade, shader, floating and glow animation; keep the story readable statically).",
+      "Do grow radius outward (8 → 12 → 16 → 24–32px) from inputs to mock windows."
+    ],
+    "donts": [
+      "Don't hardcode hex values in new screens — the palette system will not recolorize them.",
+      "Don't fill large areas with the accent; it is for text, borders, glows, and active states.",
+      "Don't use hard black drop shadows on buttons or cards — glow shadows and hairline borders carry depth.",
+      "Don't letter-space headlines or body; tracking belongs to uppercase kickers only.",
+      "Don't introduce a new font family — Inter Tight (headings) + Inter (body); system mono only inside terminal scenes.",
+      "Don't invert the radius ladder or give an input a larger radius than the card that contains it."
+    ]
+  }
+}
