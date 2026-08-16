@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { navigation, logo, cta } from '@/data/navigation';
+import PaletteSwitcher from '@/components/palette-switcher';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -151,6 +152,7 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <PaletteSwitcher />
             <Link
               href={cta.href}
               className="ml-3 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30"

@@ -29,8 +29,18 @@ export default function ScrollStory() {
     target: containerRef,
     offset: ['start start', 'end end'],
   });
+  const { scrollY } = useScroll();
 
   const progressScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    if (!containerRef.current) return;
+    if (y < containerRef.current.offsetTop - 100) {
+      if (!reducedMotion) {
+        applyPalette(derivePalette(getGradientColor(0)));
+      }
+    }
+  });
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
     const next = Math.min(storyScenes.length - 1, Math.max(0, Math.floor(v * storyScenes.length)));

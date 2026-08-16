@@ -8,18 +8,15 @@ export interface ScenePalette {
   mutedForeground: string;
 }
 
-const gradientStops = [
-  '210 96% 40%',  // #0466c8 Smart Blue
-  '210 96% 33%',  // #0353a4 Steel Azure
-  '211 97% 25%',  // #023e7d Regal Navy
-  '212 100% 17%', // #002855 Prussian Blue
-  '219 100% 14%', // #001845 Prussian Blue
-  '219 100% 10%', // #001233 Prussian Blue
-  '220 29% 28%',  // #33415c Twilight Indigo
-  '220 15% 43%',  // #5c677d Blue Slate
-  '222 11% 54%',  // #7d8597 Slate Grey
-  '223 11% 63%',  // #979dac Cool Steel
-];
+import { palettes } from '@/data/palettes';
+
+let activeStops = [...palettes[0].stops];
+
+export function setActivePalette(index: number) {
+  activeStops = [...palettes[index].stops];
+}
+
+export { palettes };
 
 function parseHSL(hsl: string) {
   const [h, s, l] = hsl.trim().split(/\s+/).map(v => parseFloat(v));
@@ -39,26 +36,31 @@ function lerpHSL(a: string, b: string, t: number): string {
 }
 
 export function getGradientColor(t: number): string {
-  const n = gradientStops.length - 1;
+  const n = activeStops.length - 1;
   const idx = t * n;
   const lo = Math.min(n, Math.max(0, Math.floor(idx)));
   const hi = Math.min(n, Math.max(0, Math.ceil(idx)));
   const frac = idx - lo;
-  return lerpHSL(gradientStops[lo], gradientStops[hi], frac);
+  return lerpHSL(activeStops[lo], activeStops[hi], frac);
+}
+
+function lerpSat(baseSat: number, baseLight: number, targetLight: number): number {
+  const diff = Math.abs(targetLight - baseLight) / 50;
+  const factor = Math.max(0.08, 1 - diff * 0.85);
+  return Math.round(Math.min(100, baseSat * factor));
 }
 
 export function derivePalette(base: string): ScenePalette {
   const { h, s, l } = parseHSL(base);
-  const sat = (m: number) => Math.round(Math.min(s * m, 100));
   const hue = h;
   return {
-    background: `${hue} ${sat(0.8)}% 16%`,
-    foreground: `${hue} ${sat(0.3)}% 86%`,
-    surface: `${hue} ${sat(0.8)}% 12%`,
-    primary: `${hue} ${sat(1)}% 45%`,
-    secondary: `${hue} ${sat(0.8)}% 38%`,
-    accent: `${hue} ${sat(0.7)}% 68%`,
-    mutedForeground: `${hue} ${sat(0.3)}% 72%`,
+    background: `${hue} ${lerpSat(s, l, 16)}% 16%`,
+    foreground: `${hue} ${lerpSat(s, l, 86)}% 86%`,
+    surface: `${hue} ${lerpSat(s, l, 12)}% 12%`,
+    primary: `${hue} ${lerpSat(s, l, 45)}% 45%`,
+    secondary: `${hue} ${lerpSat(s, l, 38)}% 38%`,
+    accent: `${hue} ${lerpSat(s, l, 68)}% 68%`,
+    mutedForeground: `${hue} ${lerpSat(s, l, 72)}% 72%`,
   };
 }
 
