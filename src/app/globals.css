@@ -142,5 +142,6 @@ html {
 @layer utilities {
   .content-auto {
     content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
   }
 }

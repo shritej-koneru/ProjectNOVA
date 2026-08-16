@@ -11,7 +11,7 @@ export default function Testimonials() {
   const doubled = [...standardFacts, ...standardFacts];
 
   return (
-    <section id="testimonials" className="py-20 bg-background overflow-hidden relative">
+    <section id="testimonials" className="py-20 bg-background overflow-hidden relative content-auto">
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <ScrollReveal>

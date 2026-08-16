@@ -120,7 +120,7 @@ export default function AboutPage() {
           />
           <h2 className="text-2xl font-bold text-accent mb-8 relative z-10">Who you are working with?</h2>
           <motion.img
-            src="/images/shritejkoneru.png"
+            src="/images/shritejkoneru.webp"
             alt="Shritej"
             className="h-24 w-24 rounded-full mx-auto mb-4 object-cover relative z-10"
             initial={{ opacity: 0, scale: 0.2, rotate: -15 }}

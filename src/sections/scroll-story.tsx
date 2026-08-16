@@ -25,6 +25,7 @@ export default function ScrollStory() {
   const [activeIndex, setActiveIndex] = useState(0);
   const reducedMotion = useReducedMotion();
   const lastScene = useRef(0);
+  const resetPalette = useRef(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
@@ -36,9 +37,12 @@ export default function ScrollStory() {
   useMotionValueEvent(scrollY, 'change', (y) => {
     if (!containerRef.current) return;
     if (y < containerRef.current.offsetTop - 100) {
-      if (!reducedMotion) {
+      if (!reducedMotion && !resetPalette.current) {
         applyPalette(derivePalette(getGradientColor(0)));
+        resetPalette.current = true;
       }
+    } else {
+      resetPalette.current = false;
     }
   });
 
@@ -48,7 +52,7 @@ export default function ScrollStory() {
     lastScene.current = next;
     setActiveIndex(next);
     if (!reducedMotion) {
-      applyPalette(derivePalette(getGradientColor(v)));
+      applyPalette(derivePalette(getGradientColor(next / (storyScenes.length - 1))));
     }
   });
 
@@ -56,10 +60,10 @@ export default function ScrollStory() {
 
   return (
     <section ref={containerRef} className="relative min-h-[900svh] bg-background text-foreground">
-      <div className="sticky top-0 flex min-h-svh items-center will-change-transform">
+      <div className="sticky top-0 flex min-h-svh items-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,hsl(var(--primary)/0.20),transparent_32%),radial-gradient(circle_at_78%_72%,hsl(var(--secondary)/0.18),transparent_34%),linear-gradient(180deg,hsl(var(--background)),hsl(var(--surface)),hsl(var(--background)))]" />
-        <div className="absolute inset-0 bg-[url('/hero-shader.png')] bg-cover bg-center opacity-20 mix-blend-screen" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(circle_at_center,black,transparent_72%)]" />
+        <div className="absolute inset-0 hidden bg-[url('/hero-shader.png')] bg-cover bg-center opacity-20 mix-blend-screen md:block" />
+        <div className="absolute inset-0 hidden bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(circle_at_center,black,transparent_72%)] md:block" />
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none z-20" />
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none z-20" />
         <motion.div style={{ scaleX: progressScale }} className="absolute left-0 top-0 z-30 h-1 w-full origin-left bg-gradient-to-r from-primary via-secondary to-accent" />
@@ -102,7 +106,7 @@ export default function ScrollStory() {
             transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
           >
             <div className="absolute h-72 w-72 md:h-80 md:w-80 lg:h-[28rem] lg:w-[28rem] rounded-full bg-accent/20 blur-3xl" />
-            <div className="relative z-10 w-full max-w-[460px] rounded-[1.5rem] border border-accent/30 bg-surface/75 p-3 shadow-[0_36px_140px_hsl(var(--primary)/0.24)] backdrop-blur-xl sm:max-w-[560px] sm:rounded-[2rem] sm:p-4">
+            <div className="relative z-10 w-full max-w-[460px] rounded-[1.5rem] border border-accent/30 bg-surface/75 p-3 shadow-[0_36px_140px_hsl(var(--primary)/0.24)] sm:max-w-[560px] sm:rounded-[2rem] sm:p-4 md:backdrop-blur-xl">
               <div className="rounded-[1.2rem] border border-white/10 bg-background/90 p-3 shadow-inner sm:rounded-[1.4rem] sm:p-4">
                 <div className="mb-3 flex items-center gap-2 sm:mb-4">
                   <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-accent/80" />
