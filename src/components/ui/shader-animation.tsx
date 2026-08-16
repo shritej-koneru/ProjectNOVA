@@ -8,25 +8,6 @@ function isMobile() {
   return window.innerWidth < 768;
 }
 
-function hslToRgb(h: number, s: number, l: number): [number, number, number] {
-  h = (((h % 360) + 360) % 360) / 360;
-  s /= 100;
-  l /= 100;
-  const k = (n: number) => (n + h * 12) % 12;
-  const a = s * Math.min(l, 1 - l);
-  const f = (n: number) => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
-  return [f(0), f(8), f(4)];
-}
-
-function readVar(name: string): [number, number, number] {
-  const root = document.documentElement;
-  let raw = root.style.getPropertyValue(name).trim();
-  if (!raw) raw = getComputedStyle(root).getPropertyValue(name).trim();
-  const [h, s, l] = raw.split(/\s+/).map(parseFloat);
-  if (![h, s, l].every(Number.isFinite)) return [0, 0, 0];
-  return hslToRgb(h, s, l);
-}
-
 export function ShaderAnimation() {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -45,10 +26,11 @@ export function ShaderAnimation() {
       precision highp float;
       uniform vec2 resolution;
       uniform float time;
-      uniform vec3 uPrimary;
-      uniform vec3 uSecondary;
-      uniform vec3 uAccent;
-      uniform vec3 uBackground;
+
+      const vec3 cerulean = vec3(0.0, 0.475, 0.569);
+      const vec3 seagrass = vec3(0.263, 0.604, 0.525);
+      const vec3 gold     = vec3(0.914, 0.851, 0.522);
+      const vec3 indigo   = vec3(0.133, 0.180, 0.314);
 
       void main(void) {
         vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
@@ -75,7 +57,7 @@ export function ShaderAnimation() {
           b += v;
         }
 
-        vec3 color = uPrimary * r + uSecondary * g + uAccent * b + uBackground * 0.15;
+        vec3 color = cerulean * r + seagrass * g + gold * b + indigo * 0.15;
 
         gl_FragColor = vec4(color, 1.0);
       }
@@ -90,23 +72,7 @@ export function ShaderAnimation() {
     const uniforms = {
       time: { value: 1.0 },
       resolution: { value: new THREE.Vector2() },
-      uPrimary: { value: new THREE.Vector3() },
-      uSecondary: { value: new THREE.Vector3() },
-      uAccent: { value: new THREE.Vector3() },
-      uBackground: { value: new THREE.Vector3() },
     }
-
-    const applyPaletteColors = () => {
-      const setVec = (name: 'uPrimary' | 'uSecondary' | 'uAccent' | 'uBackground', value: [number, number, number]) => {
-        uniforms[name].value.set(value[0], value[1], value[2]);
-      };
-      setVec('uPrimary', readVar('--primary'));
-      setVec('uSecondary', readVar('--secondary'));
-      setVec('uAccent', readVar('--accent'));
-      setVec('uBackground', readVar('--background'));
-    }
-
-    applyPaletteColors()
 
     const material = new THREE.ShaderMaterial({
       uniforms,
@@ -140,15 +106,10 @@ export function ShaderAnimation() {
 
     let animationId = 0
     let running = true
-    let lastPaletteRead = 0
 
-    const animate = (now: number) => {
+    const animate = () => {
       animationId = requestAnimationFrame(animate)
       if (!running) return
-      if (now - lastPaletteRead > 100) {
-        lastPaletteRead = now
-        applyPaletteColors()
-      }
       uniforms.time.value += 0.05
       renderer.render(scene, camera)
     }
@@ -184,8 +145,8 @@ export function ShaderAnimation() {
       className="absolute inset-0"
       style={{
         background: isMobile()
-          ? "radial-gradient(ellipse at center, hsl(var(--primary)) 0%, hsl(var(--background)) 40%, hsl(var(--surface)) 100%)"
-          : "hsl(var(--background))",
+          ? "radial-gradient(ellipse at center, #0466c8 0%, #001845 40%, #222E50 100%)"
+          : "#222E50",
         overflow: "hidden",
       }}
     />

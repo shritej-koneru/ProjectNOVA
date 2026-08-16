@@ -8,7 +8,7 @@ import { TextReveal } from '@/components/ui/cascade-text';
 
 const ShaderAnimation = dynamic(() => {
   if (typeof window !== 'undefined' && window.innerWidth < 768) {
-    return Promise.resolve({ default: () => <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, hsl(var(--primary)) 0%, hsl(var(--background)) 40%, hsl(var(--surface)) 100%)' }} /> });
+    return Promise.resolve({ default: () => <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, #0466c8 0%, #001845 40%, #222E50 100%)' }} /> });
   }
   return import('@/components/ui/shader-animation').then(m => ({ default: m.ShaderAnimation }));
 }, { ssr: false });
@@ -43,8 +43,8 @@ export default function Hero() {
               text="Transform Your"
               hoverText="Refresh Every"
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="hsl(var(--foreground))"
-              hoverPalette={["hsl(var(--accent))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--foreground))"]}
+              color="#e8edf3"
+              hoverPalette={["#caf0f8", "#90e0ef", "#00b4d8", "#0077b6", "#0077b6"]}
               staggerDelay={18}
               duration={280}
               direction="up"
@@ -56,8 +56,8 @@ export default function Hero() {
               text="Laptop."
               hoverText="Component."
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="hsl(var(--foreground))"
-              hoverPalette={["hsl(var(--accent))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--foreground))"]}
+              color="#e8edf3"
+              hoverPalette={["#caf0f8", "#90e0ef", "#00b4d8", "#0077b6", "#0077b6"]}
               staggerDelay={18}
               duration={280}
               direction="up"
@@ -69,8 +69,8 @@ export default function Hero() {
               text="Unlock Its"
               hoverText="Maximize Daily"
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="hsl(var(--accent))"
-              hoverPalette={["hsl(var(--foreground))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--accent))"]}
+              color="#0077b6"
+              hoverPalette={["#03045e", "#0077b6", "#00b4d8", "#90e0ef", "#caf0f8"]}
               staggerDelay={18}
               duration={280}
               direction="up"
@@ -82,8 +82,8 @@ export default function Hero() {
               text="Potential."
               hoverText="Performance."
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="hsl(var(--accent))"
-              hoverPalette={["hsl(var(--foreground))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--accent))"]}
+              color="#0077b6"
+              hoverPalette={["#03045e", "#0077b6", "#00b4d8", "#90e0ef", "#caf0f8"]}
               staggerDelay={18}
               duration={280}
               direction="up"
@@ -107,11 +107,11 @@ export default function Hero() {
           >
             <Link
               href="/contact"
-              className="group relative overflow-hidden rounded-full bg-accent px-6 sm:px-8 py-3.5 font-semibold text-accent-foreground shadow-[0_0_40px_hsl(var(--accent)/0.35)] transition hover:bg-accent/90 hover:shadow-[0_0_60px_hsl(var(--accent)/0.5)]"
+              className="group relative overflow-hidden rounded-full bg-[#0077b6] px-6 sm:px-8 py-3.5 font-semibold text-white shadow-[0_0_40px_rgba(0,119,182,0.45)] transition hover:bg-[#00659e] hover:shadow-[0_0_60px_rgba(0,119,182,0.6)]"
             >
               <span className="relative z-10 flex items-center gap-3">
                 {hero.primaryCta}
-                <span className="h-2.5 w-2.5 rounded-full bg-accent-foreground/70 animate-dither" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/80 animate-dither" />
               </span>
               <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-white/30 blur-lg transition duration-700 group-hover:translate-x-[340%]" />
             </Link>
