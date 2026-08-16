@@ -3,6 +3,7 @@
 import { memo, useCallback, useEffect, useRef, type CSSProperties } from "react";
 import { animate } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useDeviceCapabilities } from "@/lib/device-capabilities";
 
 interface GlowingEffectProps {
   blur?: number;
@@ -35,6 +36,11 @@ const GlowingEffect = memo(
     const containerRef = useRef<HTMLDivElement>(null);
     const lastPosition = useRef({ x: 0, y: 0 });
     const animationFrameRef = useRef<number>(0);
+    const { isLowEnd } = useDeviceCapabilities();
+
+    // On mobile / low-end devices fall back to the cheap static border variant:
+    // no animated conic gradients, no blur, no scroll/pointer listeners.
+    const effectiveDisabled = disabled || isLowEnd;
 
     const handleMove = useCallback(
       (e?: MouseEvent | { x: number; y: number }) => {
@@ -95,7 +101,7 @@ const GlowingEffect = memo(
     );
 
     useEffect(() => {
-      if (disabled) return;
+      if (effectiveDisabled) return;
 
       const handleScroll = () => handleMove();
       const handlePointerMove = (e: PointerEvent) => handleMove(e);
@@ -110,7 +116,7 @@ const GlowingEffect = memo(
         window.removeEventListener("scroll", handleScroll);
         document.body.removeEventListener("pointermove", handlePointerMove);
       };
-    }, [handleMove, disabled]);
+    }, [handleMove, effectiveDisabled]);
 
     return (
       <>
@@ -139,7 +145,7 @@ const GlowingEffect = memo(
             "pointer-events-none absolute -inset-px hidden rounded-[inherit] border opacity-0 transition-opacity",
             glow && "opacity-100",
             variant === "white" && "border-white",
-            disabled && "!block"
+            effectiveDisabled && "!block"
           )}
         />
         <div
@@ -178,7 +184,7 @@ const GlowingEffect = memo(
             glow && "opacity-100",
             blur > 0 && "blur-[var(--blur)]",
             className,
-            disabled && "!hidden"
+            effectiveDisabled && "!hidden"
           )}
         >
           <div

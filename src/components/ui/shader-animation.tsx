@@ -92,13 +92,22 @@ export function ShaderAnimation() {
 
     container.appendChild(renderer.domElement)
 
+    // Render into a capped buffer and upscale via CSS to keep fill rate low on
+    // big / high-DPR screens. The shader is procedural, so the look is unchanged.
+    const MAX_BUFFER_EDGE = 1600
+
     const onWindowResize = () => {
       const width = container.clientWidth
       const height = container.clientHeight
       if (width === 0 || height === 0) return
-      renderer.setSize(width, height)
-      uniforms.resolution.value.x = renderer.domElement.width
-      uniforms.resolution.value.y = renderer.domElement.height
+      const scale = Math.min(1, MAX_BUFFER_EDGE / Math.max(width, height))
+      const bufferWidth = Math.max(1, Math.round(width * scale))
+      const bufferHeight = Math.max(1, Math.round(height * scale))
+      renderer.setSize(bufferWidth, bufferHeight, false)
+      renderer.domElement.style.width = `${width}px`
+      renderer.domElement.style.height = `${height}px`
+      uniforms.resolution.value.x = bufferWidth
+      uniforms.resolution.value.y = bufferHeight
     }
 
     onWindowResize()

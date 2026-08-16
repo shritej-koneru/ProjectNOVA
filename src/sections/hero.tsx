@@ -5,20 +5,46 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { hero } from '@/data/content';
 import { TextReveal } from '@/components/ui/cascade-text';
+import { getDeviceCapabilities, useDeviceCapabilities } from '@/lib/device-capabilities';
 
 const ShaderAnimation = dynamic(() => {
-  if (typeof window !== 'undefined' && window.innerWidth < 768) {
-    return Promise.resolve({ default: () => <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, #0466c8 0%, #001845 40%, #222E50 100%)' }} /> });
+  if (typeof window === 'undefined') {
+    return import('@/components/ui/shader-animation').then((m) => ({ default: m.ShaderAnimation }));
   }
-  return import('@/components/ui/shader-animation').then(m => ({ default: m.ShaderAnimation }));
+  const caps = getDeviceCapabilities();
+  if (caps.isMobile) {
+    return Promise.resolve({
+      default: () => (
+        <div
+          className="absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse at center, #0466c8 0%, #001845 40%, #222E50 100%)' }}
+        />
+      ),
+    });
+  }
+  if (caps.isLowEnd) {
+    return Promise.resolve({
+      default: () => (
+        <div
+          className="absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse at center, #123a5e 0%, #222E50 72%)' }}
+        />
+      ),
+    });
+  }
+  return import('@/components/ui/shader-animation').then((m) => ({ default: m.ShaderAnimation }));
 }, { ssr: false });
 
 export default function Hero() {
+  const { isLowEnd, prefersReducedMotion } = useDeviceCapabilities();
+
   return (
     <section className="relative min-h-screen bg-background text-foreground">
       <div className="absolute inset-0">
         <ShaderAnimation />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(circle_at_center,black,transparent_72%)]" />
+        {!isLowEnd && (
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(circle_at_center,black,transparent_72%)]" />
+        )}
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none z-20" />
 
@@ -111,7 +137,7 @@ export default function Hero() {
             >
               <span className="relative z-10 flex items-center gap-3">
                 {hero.primaryCta}
-                <span className="h-2.5 w-2.5 rounded-full bg-white/80 animate-dither" />
+                <span className={`h-2.5 w-2.5 rounded-full bg-white/80 ${prefersReducedMotion ? '' : 'animate-dither'}`} />
               </span>
               <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-white/30 blur-lg transition duration-700 group-hover:translate-x-[340%]" />
             </Link>
@@ -155,8 +181,8 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-xl">
-          <div className="absolute -inset-10 rounded-full bg-accent/20 blur-3xl" />
-          <div className="relative rounded-[1.5rem] border border-accent/30 bg-surface/70 p-3 shadow-[0_40px_140px_hsl(var(--primary)/0.28)] backdrop-blur-xl sm:rounded-[2rem] sm:p-4">
+          <div className={`absolute -inset-10 rounded-full bg-accent/20 ${isLowEnd ? 'blur-xl' : 'blur-3xl'}`} />
+          <div className={`relative rounded-[1.5rem] border border-accent/30 bg-surface/70 p-3 shadow-[0_40px_140px_hsl(var(--primary)/0.28)] ${isLowEnd ? '' : 'md:backdrop-blur-xl'} sm:rounded-[2rem] sm:p-4`}>
             <div className="rounded-[1.2rem] border border-white/10 bg-background/95 p-3 sm:p-5 sm:rounded-[1.5rem]">
               <div className="mb-3 sm:mb-5 flex items-center gap-2">
                 <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-accent" />
