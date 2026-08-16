@@ -55,9 +55,24 @@
   }
 }
 
+.animate-dither {
+  animation: dither 2.2s ease-in-out infinite;
+}
+
+@keyframes dither {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-3px);
+    opacity: 0.6;
+  }
+}
+
 /* Custom gradients */
 .gradient-bg {
-  @apply bg-gradient-to-br from-[#0466c8] via-[#023e7d] to-[#001233];
+  @apply bg-gradient-to-br from-[hsl(var(--primary))] via-[hsl(var(--secondary))] to-[hsl(var(--background))];
 }
 
 .gradient-primary {

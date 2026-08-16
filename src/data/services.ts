@@ -1,14 +1,14 @@
 // Services data with descriptions and placeholder images
 const placeholders = {
-  windows: 'https://api.iconify.design/ph/windows-logo.svg?color=%23E9D985&height=60',
-  setup: 'https://api.iconify.design/ph/gear-six.svg?color=%23E9D985&height=60',
-  tune: 'https://api.iconify.design/ph/gauge.svg?color=%23E9D985&height=60',
-  brush: 'https://api.iconify.design/ph/paint-brush.svg?color=%23E9D985&height=60',
-  code: 'https://api.iconify.design/ph/code.svg?color=%23E9D985&height=60',
-  terminal: 'https://api.iconify.design/ph/terminal.svg?color=%23E9D985&height=60',
-  gamepad: 'https://api.iconify.design/ph/game-controller.svg?color=%23E9D985&height=60',
-  wrench: 'https://api.iconify.design/ph/wrench.svg?color=%23E9D985&height=60',
-  sparkle: 'https://api.iconify.design/ph/sparkle.svg?color=%23E9D985&height=60',
+  windows: 'https://api.iconify.design/ph/windows-logo.svg?color=currentColor&height=60',
+  setup: 'https://api.iconify.design/ph/gear-six.svg?color=currentColor&height=60',
+  tune: 'https://api.iconify.design/ph/gauge.svg?color=currentColor&height=60',
+  brush: 'https://api.iconify.design/ph/paint-brush.svg?color=currentColor&height=60',
+  code: 'https://api.iconify.design/ph/code.svg?color=currentColor&height=60',
+  terminal: 'https://api.iconify.design/ph/terminal.svg?color=currentColor&height=60',
+  gamepad: 'https://api.iconify.design/ph/game-controller.svg?color=currentColor&height=60',
+  wrench: 'https://api.iconify.design/ph/wrench.svg?color=currentColor&height=60',
+  sparkle: 'https://api.iconify.design/ph/sparkle.svg?color=currentColor&height=60',
 };
 
 export interface ServiceItem {

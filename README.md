@@ -68,7 +68,6 @@ src/
     footer.tsx            # 4-column responsive footer
     contact-form.tsx      # Cascading Category → Service booking form
     breadcrumbs.tsx       # Sub-page breadcrumb navigation
-    welcome-popup.tsx     # Session-stored welcome modal
     scroll-reveal.tsx     # IntersectionObserver fade-in wrapper
     faq-item.tsx          # Accordion item component
     ui/shader-animation.tsx  # Three.js WebGL shader (desktop only)
@@ -77,13 +76,13 @@ src/
     scroll-story.tsx      # 10-scene scroll-driven storytelling
     services.tsx          # Featured services grid (home)
     stats.tsx             # Trust highlights (4 qualitative cards)
-    testimonials.tsx      # Infinite marquee testimonials
+    testimonials.tsx      # Infinite marquee of honest Nova Standard facts
     pricing.tsx           # Pricing tables
     faq.tsx               # FAQ accordion
     contact.tsx           # Contact form wrapper
     terms.tsx             # Terms accordion
   data/                   # Static content (no CMS)
-    content.ts            # Hero, scenes, testimonials, FAQ, CTA copy
+    content.ts            # Hero, scenes, standard facts, FAQ, CTA copy
     services.ts           # 9 categories, 50+ services
     menu.ts               # Pricing records
     navigation.ts         # Nav items, CTA button

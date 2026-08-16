@@ -45,8 +45,8 @@ export default function ContactPage() {
                     href={s.href}
                     className="flex items-center gap-4 group"
                   >
-                    <div className="h-11 w-11 rounded-full border border-surface/30 bg-surface/40 flex items-center justify-center group-hover:border-accent/30 transition-colors shrink-0">
-                      <img src={`https://api.iconify.design/${s.icon}.svg?color=%23E9D985`} alt={s.name} className="h-5 w-5" />
+                    <div className="h-11 w-11 rounded-full border border-surface/30 bg-surface/40 flex items-center justify-center text-accent group-hover:border-accent/30 transition-colors shrink-0">
+                      <img src={`https://api.iconify.design/${s.icon}.svg?color=currentColor`} alt={s.name} className="h-5 w-5" />
                     </div>
                     <div>
                       <div className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">{s.name}</div>

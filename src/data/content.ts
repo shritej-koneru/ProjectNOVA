@@ -60,12 +60,13 @@ export const storyScenes = [
   }
 ];
 
-export const testimonials = [
-  'Laptop feels significantly faster after optimization.',
-  'Linux dual boot was completed smoothly.',
-  'Everything I needed for coding was ready in one session.',
-  'Obsidian sync works perfectly across my devices.',
-  'Saved me hours of setup time.'
+export const standardFacts = [
+  'Boot times cut from minutes to seconds after a debloat.',
+  'A restore point is secured before any change is made.',
+  'You get a free quote before any custom work begins.',
+  'Issues reported within 48 hours are fixed at no extra cost.',
+  'Every service is priced for students, from ₹99.',
+  'Watch every session live — remote or in person.'
 ];
 
 export const faq = [

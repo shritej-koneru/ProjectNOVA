@@ -18,6 +18,7 @@ export interface TextRevealProps {
   hoverColor?: string;
   hoverPalette?: string[];
   direction?: "up" | "down";
+  wrap?: boolean;
   onClick?: (e: React.MouseEvent) => void;
 }
 
@@ -37,6 +38,7 @@ const TextReveal = React.memo(function TextReveal({
   hoverColor = "#b2c73a",
   hoverPalette,
   direction = "up",
+  wrap = false,
   onClick,
 }: TextRevealProps) {
   const [hovered, setHovered] = useState(false);
@@ -115,7 +117,7 @@ const TextReveal = React.memo(function TextReveal({
     onMouseEnter: () => setHovered(true),
     onMouseLeave: () => setHovered(false),
     onClick,
-    "aria-label": hoverText ?? text,
+    "aria-label": text,
   };
 
   if (Component === "a") {
@@ -128,12 +130,12 @@ const TextReveal = React.memo(function TextReveal({
     <Component {...rootProps}>
       {hoverText ? (
         <span
-          className="relative inline-grid w-fit align-top whitespace-nowrap overflow-visible"
+          className={`relative inline-grid w-fit align-top ${wrap ? "whitespace-normal" : "whitespace-nowrap"} overflow-visible`}
           style={{ lineHeight: 0.92 }}
           aria-hidden="true"
         >
           <span
-            className="col-start-1 row-start-1 inline-flex whitespace-nowrap"
+            className={`col-start-1 row-start-1 inline-flex ${wrap ? "whitespace-normal" : "whitespace-nowrap"}`}
             style={{
               opacity: hovered ? 0 : 1,
               transform: hovered ? "translateY(-0.18em)" : "translateY(0)",
@@ -152,7 +154,7 @@ const TextReveal = React.memo(function TextReveal({
             ))}
           </span>
           <span
-            className="col-start-1 row-start-1 inline-flex whitespace-nowrap"
+            className={`col-start-1 row-start-1 inline-flex ${wrap ? "whitespace-normal" : "whitespace-nowrap"}`}
             style={{
               opacity: hovered ? 1 : 0,
               transform: hovered ? "translateY(0)" : "translateY(0.18em)",
@@ -173,7 +175,7 @@ const TextReveal = React.memo(function TextReveal({
         </span>
       ) : (
         <span
-          className="inline-flex relative whitespace-nowrap"
+          className={`inline-flex relative ${wrap ? "whitespace-normal" : "whitespace-nowrap"}`}
           style={{ height: `${offsetEm}em` }}
           aria-hidden="true"
         >

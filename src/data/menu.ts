@@ -1,5 +1,5 @@
 function icon(name: string) {
-  return `https://api.iconify.design/${name}.svg?color=%23E9D985&height=40`;
+  return `https://api.iconify.design/${name}.svg?color=currentColor&height=40`;
 }
 
 function desc(name: string, detail: string) {

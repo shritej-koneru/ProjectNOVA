@@ -36,16 +36,6 @@ export const siteConfig = {
   ]
 };
 
-export const colors = {
-  background: '#222E50',
-  surface: '#1A2440',
-  primary: '#007991',
-  secondary: '#439A86',
-  accent: '#E9D985',
-  text: '#E8E2C9',
-  muted: '#BCD8C1'
-};
-
 export const typography = {
   headings: 'Inter Tight',
   body: 'Inter'

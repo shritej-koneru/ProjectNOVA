@@ -8,7 +8,7 @@ import { TextReveal } from '@/components/ui/cascade-text';
 
 const ShaderAnimation = dynamic(() => {
   if (typeof window !== 'undefined' && window.innerWidth < 768) {
-    return Promise.resolve({ default: () => <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, #0466c8 0%, #001845 40%, #222E50 100%)' }} /> });
+    return Promise.resolve({ default: () => <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, hsl(var(--primary)) 0%, hsl(var(--background)) 40%, hsl(var(--surface)) 100%)' }} /> });
   }
   return import('@/components/ui/shader-animation').then(m => ({ default: m.ShaderAnimation }));
 }, { ssr: false });
@@ -43,11 +43,12 @@ export default function Hero() {
               text="Transform Your"
               hoverText="Refresh Every"
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="#e8edf3"
-              hoverPalette={["#caf0f8", "#90e0ef", "#00b4d8", "#0077b6", "#0077b6"]}
+              color="hsl(var(--foreground))"
+              hoverPalette={["hsl(var(--accent))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--foreground))"]}
               staggerDelay={18}
               duration={280}
               direction="up"
+              wrap
               className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
             />
             <TextReveal
@@ -55,11 +56,12 @@ export default function Hero() {
               text="Laptop."
               hoverText="Component."
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="#e8edf3"
-              hoverPalette={["#caf0f8", "#90e0ef", "#00b4d8", "#0077b6", "#0077b6"]}
+              color="hsl(var(--foreground))"
+              hoverPalette={["hsl(var(--accent))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--foreground))"]}
               staggerDelay={18}
               duration={280}
               direction="up"
+              wrap
               className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
             />
             <TextReveal
@@ -67,11 +69,12 @@ export default function Hero() {
               text="Unlock Its"
               hoverText="Maximize Daily"
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="#0077b6"
-              hoverPalette={["#03045e", "#0077b6", "#00b4d8", "#90e0ef", "#caf0f8"]}
+              color="hsl(var(--accent))"
+              hoverPalette={["hsl(var(--foreground))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--accent))"]}
               staggerDelay={18}
               duration={280}
               direction="up"
+              wrap
               className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
             />
             <TextReveal
@@ -79,11 +82,12 @@ export default function Hero() {
               text="Potential."
               hoverText="Performance."
               fontSize="clamp(2.8rem, 8vw, 4.75rem)"
-              color="#0077b6"
-              hoverPalette={["#03045e", "#0077b6", "#00b4d8", "#90e0ef", "#caf0f8"]}
+              color="hsl(var(--accent))"
+              hoverPalette={["hsl(var(--foreground))", "hsl(var(--secondary))", "hsl(var(--primary))", "hsl(var(--accent))"]}
               staggerDelay={18}
               duration={280}
               direction="up"
+              wrap
               className="!font-heading !font-bold !normal-case !tracking-tight leading-[0.9]"
             />
           </motion.h1>
@@ -103,13 +107,13 @@ export default function Hero() {
           >
             <Link
               href="/contact"
-              className="group relative overflow-hidden rounded-full border border-accent/40 bg-accent/15 px-5 sm:px-7 py-3 font-semibold text-accent shadow-[0_0_40px_hsl(var(--accent)/0.18)] backdrop-blur transition hover:bg-accent/25"
+              className="group relative overflow-hidden rounded-full bg-accent px-6 sm:px-8 py-3.5 font-semibold text-accent-foreground shadow-[0_0_40px_hsl(var(--accent)/0.35)] transition hover:bg-accent/90 hover:shadow-[0_0_60px_hsl(var(--accent)/0.5)]"
             >
               <span className="relative z-10 flex items-center gap-3">
                 {hero.primaryCta}
-                <span className="h-2.5 w-2.5 rounded-full bg-accent animate-dither" />
+                <span className="h-2.5 w-2.5 rounded-full bg-accent-foreground/70 animate-dither" />
               </span>
-              <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-white/20 blur-lg transition duration-700 group-hover:translate-x-[340%]" />
+              <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-white/30 blur-lg transition duration-700 group-hover:translate-x-[340%]" />
             </Link>
             <Link
               href="/services"
@@ -117,6 +121,36 @@ export default function Hero() {
             >
               {hero.secondaryCta}
             </Link>
+          </motion.div>
+          <motion.div
+            className="mt-8 flex flex-col items-center gap-4 lg:items-start"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-accent"
+            >
+              <span className="font-semibold text-accent">Packs from ₹399</span>
+              <span aria-hidden="true" className="text-muted-foreground/50">&middot;</span>
+              <span>single services from ₹99</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground/70 lg:justify-start">
+              <li className="flex items-center gap-1.5">
+                <span aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+                Free quote before any work
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+                Restore point secured first
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+                48-hour follow-up at no cost
+              </li>
+            </ul>
           </motion.div>
         </div>
 

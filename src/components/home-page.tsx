@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { services } from '@/data/services';
 import ScrollReveal from '@/components/scroll-reveal';
-import WelcomePopup from '@/components/welcome-popup';
 import ScrollIndicator from '@/components/scroll-indicator';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 
@@ -29,7 +28,6 @@ const featuredServices = (() => {
 export default function HomePage() {
   return (
     <>
-      <WelcomePopup />
       <ScrollIndicator />
       <Hero />
       <ScrollStory />
@@ -117,6 +115,26 @@ export default function HomePage() {
               Book My Setup
               <span aria-hidden="true">&rarr;</span>
             </Link>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="mt-6 space-y-3"
+            >
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-accent"
+              >
+                <span className="font-semibold text-accent">Packs from ₹399</span>
+                <span aria-hidden="true" className="text-muted-foreground/50">&middot;</span>
+                <span>single services from ₹99</span>
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+              <p className="text-xs text-muted-foreground/70">
+                No-obligation quote &middot; Restore point secured first &middot; 48-hour follow-up at no cost
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </section>

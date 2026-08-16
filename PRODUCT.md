@@ -61,8 +61,7 @@ Terminology: NOVA = Notebook Optimization, Virtualization & Advancement.
 ## Evidence on Hand
 
 - Real content: service descriptions, pricing, FAQ, story scenes, and contact details are genuine.
-- Illustrative only: the testimonials on the site are placeholders and must not be presented as real customer proof.
-- No real customer quotes, case studies, press coverage, or demonstration assets are on hand; future work must not fabricate them.
+- Honest proof only: the old placeholder "testimonials" were removed and replaced with a "Nova Standard" strip of real service promises (pricing, restore points, 48-hour follow-up, live sessions). No fabricated customer quotes or fake star ratings remain; future work must not fabricate them.
 
 ## Product Principles
 

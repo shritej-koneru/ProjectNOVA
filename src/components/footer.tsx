@@ -28,9 +28,9 @@ export default function Footer() {
                   key={s.name}
                   href={s.href}
                   aria-label={s.name}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-surface/30 bg-surface/40 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-accent/30 hover:text-accent"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-surface/30 bg-surface/40 text-accent transition-all hover:-translate-y-0.5 hover:border-accent/30 hover:text-accent"
                 >
-                  <img src={`https://api.iconify.design/${s.icon}.svg?color=%23E9D985`} alt={s.name} className="h-4 w-4" />
+                  <img src={`https://api.iconify.design/${s.icon}.svg?color=currentColor`} alt={s.name} className="h-4 w-4" />
                 </a>
               ))}
             </div>
@@ -61,7 +61,7 @@ export default function Footer() {
             <h4 className="mb-5 text-sm font-semibold tracking-wider text-accent uppercase">Support</h4>
             <nav className="space-y-3">
               <Link href="/contact" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Get Help</Link>
-              <Link href="/about" className="block text-sm text-muted-foreground transition-colors hover:text-accent">FAQ</Link>
+              <Link href="/contact" className="block text-sm text-muted-foreground transition-colors hover:text-accent">FAQ</Link>
               <Link href="/terms" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Terms</Link>
               <Link href="/terms" className="block text-sm text-muted-foreground transition-colors hover:text-accent">Privacy</Link>
             </nav>

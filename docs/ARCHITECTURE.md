@@ -24,12 +24,11 @@ src/
     navbar.tsx                  # Fixed glassmorphism navbar
     scroll-reveal.tsx           # IntersectionObserver fade-in wrapper
     service-modal.tsx           # Service detail modal (legacy)
-    welcome-popup.tsx           # Session-based welcome modal
   sections/                     # Full-page sections (used by pages)
     hero.tsx                    # Hero with shader + laptop mockup
     scroll-story.tsx            # 10-scene scroll-driven storytelling
     stats.tsx                   # Trust highlights (4 cards, no numbers)
-    testimonials.tsx            # Infinite marquee testimonials
+    testimonials.tsx            # Infinite marquee of honest Nova Standard facts
     services.tsx                # Services grid (home page)
     pricing.tsx                 # Pricing tables
     faq.tsx                     # FAQ accordion
@@ -67,5 +66,4 @@ Content is authored in Markdown under `docs/`, then manually synced to TypeScrip
 - **Navbar:** Fixed top, glassmorphism on scroll (>20px), dropdown on hover, mobile drawer, active via `usePathname()`
 - **Footer:** 4-column responsive grid, gradient divider, social icons
 - **ContactForm:** Two cascading selects (Category → Service), reads `?service=` from URL, wrapped in `<Suspense>`
-- **WelcomePopup:** Session-stored, shows lag disclaimer + contact links + OK button
 - **Breadcrumbs:** Auto-renders on sub-pages, last item bold, separator `/`
